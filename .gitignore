@@ -1,0 +1,10 @@
+# .gitignore
+
+# Editor artifacts
+.nrepl-port
+*~
+
+## Other
+# silly Mac filesystem
+*.DS_Store*
+*._*
