@@ -7,6 +7,8 @@ are listed in alphabetical order.
 from the [Clojure Doc Site](https://github.com/clojuredocs/guides)
 under the [CC-BY-SA 3.0](http://creativecommons.org/licenses/by/3.0/) license.
 
+---
+
 ### arity
 
 The number of arguments a function takes is its arity.  If it's
@@ -62,10 +64,7 @@ See also [libspec](#libspec).
 
 The handy trick used in a [let-binding](#let_binding) to "unpack" the
 values from a data structure into the locals you're going to use.  See
-also [binding-form](#binding-form) and [the destructuring section in
-the functions
-guide](functions.html#destructuring_of_function_arguments).
-
+also [binding-form](#binding-form).
 
 
 ### dereference
@@ -257,14 +256,6 @@ do not modify the state of the object or structure they are queried
 against.
 
 
-
-### persistence
-
-See the [relevant section of the
-introduction](../tutorials/introduction.html#values_immutability_and_persistence).
-
-
-
 ### predicate
 
 A function taking one or more args and returning a boolean (`true` or
@@ -303,7 +294,7 @@ for example, `#""`, `#{}`, quoting, etc.
 
 When the next value in a [lazy](#lazy) sequence is accessed for the
 first time, and is computed so as to made available, it is said to
-have been "realized".  This term is also used to refer to the status of [promises](concurrency_and_parallelism.html#promises), [futures](concurrency_and_parallelism.html#futures), and [delays](concurrency_and_parallelism.html#delays).  That is, if a promise (for example) is realized then that means its value has been delivered and is accessible via [dereferencing](#dereference).
+have been "realized".  This term is also used to refer to the status of **promises**, **futures**, and **delays**.  That is, if a promise (for example) is realized then that means its value has been delivered and is accessible via [dereferencing](#dereference).
 
 
 
