@@ -1,10 +1,20 @@
-# installfest
+# ClojureBridge MN - Summer 2015
 
-Documentation on the ClojureBridgeMN installfest.
+Welcome to the ClojureBridge MN getting started page!
 
-_TBD_
+* [Installfest](docs/setup.md) *(Friday instructions for getting ready for the workshop)*
+* Track 1
+  * [track1-chatter](https://github.com/clojurebridge-minneapolis/track1-chatter) *the sample application for Track 1*
+* Track 2
+  * [clojure-koans](https://github.com/clojurebridge-minneapolis/clojure-koans) *Morning session*
+  * [track2-functional](https://github.com/clojurebridge-minneapolis/track2-functional) *Afternoon session*
+* [Resources](docs/resources.md) *pointers to all kinds of Clojure resources*
 
-## Copyright and License
+
+*NOTE:* you can refer to this page with this short url: http://bit.ly/cb-mn
+![QR-code](docs/img/cb-mn.png)
+
+### Copyright and License
 
 Copyright © 2015 Tom Marble
 
