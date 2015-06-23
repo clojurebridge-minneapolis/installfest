@@ -3,6 +3,9 @@
 A glossary of terminology specific to Clojure. Terms
 are listed in alphabetical order.
 
+*What about...?* Are we missing a term you you need? Let us know!
+You can ask by filing a new [issue]( https://github.com/clojurebridge-minneapolis/installfest/issues).
+
 *NOTE:* portions of this glossary have been adapted
 from the [Clojure Doc Site](https://github.com/clojuredocs/guides)
 under the [CC-BY-SA 3.0](http://creativecommons.org/licenses/by/3.0/) license.
