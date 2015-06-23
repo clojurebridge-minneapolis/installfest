@@ -12,7 +12,7 @@
 * Clojure Development Environments
   * [Nightcode](https://sekao.net/nightcode/)
   * Emacs with [CIDER](https://github.com/clojure-emacs/cider)
-  * Eclipse with [Counterclockwise](https://code.google.com/p/counterclockwise/)
+  * Eclipse with [Counterclockwise](http://doc.ccw-ide.org/)
   * Intellij with [Cursive](https://cursiveclojure.com/)
   * Vim with [Fireplace](https://github.com/tpope/vim-fireplace)
   * Sublime Text with [SublimeREPL](https://github.com/wuub/SublimeREPL)
@@ -33,17 +33,17 @@
     * [Git Visual Cheat Sheet](https://github.com/blog/104-visual-cheat-sheet)
     * [Salesforce Git Cheat Sheet](https://na1.salesforce.com/help/pdfs/en/salesforce_git_developer_cheatsheet.pdf)
   * [Heroku Cheatsheet](http://ruten.ca/2012/02/15/heroku-cheatsheet-useful-heroku-commands-reference/)
-  * For [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+  * [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+* More about ClojureBridge
+  * [ClojureBridge.org](http://clojurebridge.org) *global site*
+  * Global ClojureBridge [Curriculum](http://clojurebridge.github.io/curriculum/) (and [source](https://github.com/ClojureBridge/curriculum/blob/gh-pages/README.md))
+  * [BridgeFoundry](http://bridgefoundry.org/) *fiscal sponsorship organization*
 * Where to go for help?
   * **#clojure-beginners** channel on Freenode IRC: http://webchat.freenode.net/
   * [Stack Overflow](http://stackoverflow.com/questions/tagged/clojure)
-* More about ClojureBridge
-  * [ClojureBridge.org](http://clojurebridge.org) *global site*
-  * Global ClojureBridge [Curriculum](http://clojurebridge.github.io) (and [source](https://github.com/ClojureBridge/curriculum/blob/gh-pages/README.md))
-  * [BridgeFoundry](http://bridgefoundry.org/) *fiscal sponsorship organization*
 * Local Clojure Scene
   * **#clojure.mn** channel on Freenode IRC: http://webchat.freenode.net/
   * Minnesota Clojure User Group - http://clojure.mn
-  * [ClojureBridgeMN.org](ClojureBridgeMN.org)
+  * [ClojureBridgeMN.org](http://ClojureBridgeMN.org)
   * ClojureBridgeMN [event calendar](https://www.google.com/calendar/embed?src=clojurebridgemn%40gmail.com&ctz=America/Chicago)
   * ClojureBridgeMN organizers: info@ClojureBridgeMN.org (for information on volunteering and/or donating)
