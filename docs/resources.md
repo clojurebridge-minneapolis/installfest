@@ -4,11 +4,16 @@
 * Essential Resources
   * [Grimoire](http://conj.io/) *amazing online cheatsheet*
   * [Clojure Reference Documentation](http://clojure.org/documentation)
+  * [Community-maintained Documentation for Common Clojure Functions](https://clojuredocs.org/quickref) with examples and discussion 
   * [Java API Docs](http://docs.oracle.com/javase/8/docs/api/)
 * More pointers to getting started
   * http://clojure.org/getting_started
   * http://clojure-doc.org/
   * http://clojuredocs.org/
+* Exercises that help learn Clojure:
+  * [Clojure koans](https://github.com/clojurebridge-minneapolis/clojure-koans)
+  * A series of [youtube videos](https://www.youtube.com/playlist?list=PL1p6TgkbKXqyOwq6iSkce_EY5YWFHciHt) that help with koans
+  * Another excellent collection of Clojure problems of different levels: [4clojure.com/](https://www.4clojure.com/)
 * Clojure Development Environments
   * [Nightcode](https://sekao.net/nightcode/)
   * Emacs with [CIDER](https://github.com/clojure-emacs/cider)
