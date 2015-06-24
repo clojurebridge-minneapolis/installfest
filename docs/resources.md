@@ -21,10 +21,10 @@
   * Intellij with [Cursive](https://cursiveclojure.com/)
   * Vim with [Fireplace](https://github.com/tpope/vim-fireplace)
   * Sublime Text with [SublimeREPL](https://github.com/wuub/SublimeREPL)
-* Books and tutorials:
+* Books and tutorials
   * [Clojure for the brave and true](http://www.braveclojure.com/) - not yet finished, but has an online version
   * [Living Clojure](http://shop.oreilly.com/product/0636920034292.do)
-  * [Clojure from the ground up](https://aphyr.com/posts/301-clojure-from-the-ground-up-welcome) - an excellent resource for those new to programming. 
+  * [Clojure from the ground up](https://aphyr.com/posts/301-clojure-from-the-ground-up-welcome) - an excellent resource for those new to programming 
 * Videos
   * Past
     * Rich Hickey: [Simple made Easy](http://www.infoq.com/presentations/Simple-Made-Easy)
