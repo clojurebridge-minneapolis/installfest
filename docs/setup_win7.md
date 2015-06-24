@@ -5,7 +5,7 @@ Windows 7 Setup
 * Get Java installed
 * Get Leiningen installed
 * Get Light Table installed
-* Get Git installed
+* Get Heroku installed (includes Git)
 * Test installation
 * Troubleshooting
 
@@ -53,57 +53,63 @@ Next, go back to [the Leiningen Windows installer site](http://leiningen-win-ins
 
 Go to the [Light Table site](http://www.lighttable.com/). On the page there, you should see a set of buttons that have download links for Light Table. Click the "Win" button and you will download a .zip file.
 
-![Light Table downloads](img/light-table-download.png)
-![Light Table downloads Windows](img/win/light-table-download.png)
+![Light Table downloads](img/win/light-table-download.png)
 
 Unzip this file (either by finding it in your Downloads folder and double-clicking it, or by choosing "Open" when downloading.) Inside the .zip file, there is a a directory called "Light Table". Drag this to your desktop. (If you know what you are doing and want this somewhere else, that is fine.)
 
 Inside the Light Table directory, there is an application called Light Table. Right-click it and choose "Pin to Start Menu" so you can start it more quickly.
 
-## Installing Git
+## Get setup with Heroku
 
-See if you already have Git installed at the command prompt with the command `git --version`.
-If not, download it from the [git-scm.com Windows download page](http://git-scm.com/download/win) and run the executable to install.
+Heroku is the tool we will use in order to put your application online where others can see it.
 
-After installation, try the `git --version` command in a new command prompt window. If you see a version number, git
-was installed correctly.
+First, we need to create an account. Go to [Heroku](http://heroku.com) and click the "Sign up" link.
 
-If you see a message that says, `'git' is not recognized as an internal or external command`,
-try these steps to update your PATH variable properly:
-* Right-click "My Computer" and select "Properties".
-* Click the "Advanced Tab" and then the "Environment Variables" button.
-* Highlight the PATH entry and click "Edit".
-* Scroll to the end of this value and check for a file path at the end that includes "...\Git...".
-* If that path existed:
-  * Click "Okay" until the "My Computer" dialog box is closed.
-  * Open a new command prompt window and try `git --version` again. If that does not succeed, restart your computer and try again.
-* If that path did not exist:
-  * If you did not change the install location of git during installation, add ";C:\Program Files (x86)\Git\cmd" to the end of the line. Make sure you add the semi-colon between file paths and the line includes no spaces between paths.
-  * Click "Okay" until the "My Computer" dialog box is closed.
-  * Open a new command prompt window and try `git --version` again. If that does not succeed, restart your computer and try again.
+![Heroku step 1](img/heroku-step1.png)
 
-If you've used Git before then you should already have user.name and user.email configured.
-Otherwise, type this in the command prompt:
+You will be taken to a form where you need to enter your email address in order to sign up. Fill out that form, and you will be sent an email with a link to click to continue the signup process.
+
+![Heroku step 2](img/heroku-step2.png)
+
+After clicking on the link, you will be taken to another form where you will need to choose a password. Choose one and enter it twice.
+
+![Heroku step 3](img/heroku-step3.png)
+
+After all that, you should be at your Heroku dashboard. There will be a link on the dashboard to download the Heroku Toolbelt. Download it now.
+
+![Heroku dashboard](img/heroku-dashboard.png)
+
+You will download an .exe file. Run this executable to install the Heroku Toolbelt and follow all prompts from the installation wizard.
+
+Before you can use Heroku, you will have to set up SSH, the way your computer communicates with Heroku.
+
+First, look up what your user directory is. You can find it by running `echo %USERPROFILE%`. Create a place for your SSH keys by running this command:
 
 ```
-git config --global user.name "Your Actual Name"
-git config --global user.email "Your Actual Email"
+mkdir "%USERPROFILE%\.ssh"
 ```
-TIP: Use the same email address for git, github, and ssh.
 
-Verify by typing this in the command prompt:
+Then, if you have 32-bit Windows, run this command:
 
-`git config --get user.name`
-Expected result:
-`your name`
+```
+"C:\Program Files\Git\bin\ssh-keygen.exe"
+```
 
-`git config --get user.email`
-Expected result:
-`your email address`
+If you have 64-bit Windows, run this command instead:
+
+```
+"C:\Program Files (x86)\Git\bin\ssh-keygen.exe"
+```
+
+The quotes are necessary on the `ssh-keygen.exe` command. When you run `ssh-keygen.exe`, you will need to type the name of your user directory - everything from "C:\" onward - plus `\.ssh\id_rsa` when it asks you where to save the key. Be careful to type everything exactly. When it asks to 'Enter passphrase' just hit Enter, then Enter again. *Look at the following example:*
+
+![ssh-keygen](img/win7/ssh-keygen.png)
+
+After that, close the command prompt, open it again, and run the command `heroku login`. You will be prompted for your email and password on Heroku. If you enter them and the command ends successfully, congratulations!
 
 ## Testing your setup
 
-You have set up Java, Leiningen, Light Table, and Git on your computer, all the tools you will need for this program. Before starting, we need to test them out. Make sure you have a terminal (OS X) or command prompt (Windows) open for testing. We will just call this a terminal from now on.
+You have set up Java, Leiningen, Light Table, Git, and Heroku on your computer, all the tools you will need for this program. Before starting, we need to test them out. Make sure you have a terminal (OS X) or command prompt (Windows) open for testing. We will just call this a terminal from now on.
 
 Go to your terminal and run the following command:
 
@@ -135,30 +141,33 @@ At the bottom of the screen, you will see a cube moving and some text about conn
 
 ![Testing Light Table - running in the instarepl](img/win7/testing-step4.png)
 
-If that worked, great! Close Light Table. 
+If that worked, great! Close Light Table. We only have one more thing to test, Heroku.
 
-Finally, let's make sure the application you downloaded will run properly.  To test this, you will use Leiningen to run the application on your computer.  As this is a (very simple) web application, you should be able to use a web browser to see it runnning in all its humble glory.  Let's start with
+Go back to your terminal. You should still be in the `clojure-sample` directory.
+
+Run this command:
+
+`heroku create`
+
+There should be output about something being created. A URL will be displayed. Look at the following example:
+
+![Testing heroku create](img/win7/testing-step5.png)
+
+Next, run the following commands:
 
 ```
-lein run
+git push heroku master
+
+heroku open
 ```
 
-This tells Leiningen to run your application.  Different applications run in different ways - this one starts up it's own little webserver on your computer.  If this is the first time you've run a web application, the output in the Terminal window (see below) may not make much sense, so let's test the application in a browser.
+Enter "yes" if you are asked if you are sure you want to connect.
 
-![Testing lein run](img/win/testing-lein-run.png)
+Your browser should open (and take a long time to load) and you should see a website like the following:
 
-You now need to open a web browser (Chrome, Firefox, Safari, etc) and point it towards the application running on your computer.  Enter the following URL to access your application:
+![Testing heroku working](img/win7/testing-step6.png)
 
-```
-http://localhost:8080/
-```
-
-This is what your browser should look like if everything has been successful.
-
-![Testing in browser](img/win/testing-browser.png)
-
-Congratulations! You have actually made a very simple Clojure app, and your computer is all set up to make more.
-
+Congratulations! That website is running code you have on your computer that you have uploaded. You have actually made a very simple Clojure app, and your computer is all set up to make more.
 
 ## Troubleshooting
 

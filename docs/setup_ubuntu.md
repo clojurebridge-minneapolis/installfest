@@ -5,7 +5,7 @@ Ubuntu Setup
 * Make sure Java is installed
 * Get Leiningen installed
 * Get Light Table installed
-* Get Git installed
+* Get Heroku installed (includes Git)
 * Test installation
 
 ## Starting a terminal
@@ -26,7 +26,7 @@ Run `java -version` in your terminal. If you do not have Java installed, Ubuntu 
 
 ![no java](img/ubuntu/no_java.png)
 
-Follow all of the directions Ubuntu gives you, selecting the package "openjdk-7-jre" then return to this part of the tutorial and run `java -version` again.
+Follow all of the directions Ubuntu gives you, selecting the package "openjdk-7-jre-headless" then return to this part of the tutorial and run `java -version` again.
 
 If Java is installed, you will see something like this in your terminal:
 
@@ -49,7 +49,9 @@ After that, run the following commands in your terminal. You will be prompted to
 sudo mkdir -p /usr/local/bin/
 sudo mv ~/Downloads/lein* /usr/local/bin/lein
 sudo chmod a+x /usr/local/bin/lein
-export PATH=$PATH:/usr/local/bin
+cd $HOME
+echo 'PATH=$PATH:/usr/local/bin' >> .bashrc
+exec bash
 ```
 
 After you run the above commands, run the `lein version` command. It should take a while to run, as it will download some resources it needs the first time. If it completes successfully, you are golden! If not, ask an instructor for help.
@@ -65,15 +67,14 @@ Alternatively, open your terminal and type `uname -m` if the output says "x86_64
 Go to the [Light Table site](http://www.lighttable.com/). On the page there, you should see a set of buttons that have download links for Light Table.
 Depending on your architecture, click the "Linux64" or "Linux32" button and select the "Save file".
 
-![Light Table downloads](img/light-table-download.png)
-![Light Table downloads Ubuntu](img/ubuntu/light-table-download.png)
+![Light Table downloads](img/ubuntu/lighttable.png)
 
 Open up your terminal and cd to the directory where your downloads go `cd ~/Downloads`.
 Check to see that your file is there. `ls`
 Extract the compressed file `tar -xzf LightTableLinux64.tar.gz`
 Check to see that there is now a directory called LightTable `ls`
 Move the LightTable directory to "/usr/local/bin" `sudo mv LightTable /usr/local/bin`
-Set your path so you can launch LightTable from the command line `export PATH=$PATH:/usr/local/bin/LightTable`
+From your home directory, set your path so you can launch LightTable from the command line  `echo "export PATH=/usr/local/bin/LightTable:$PATH" >> .bashrc`
 Launch LightTable `LightTable`
 
 If you want, you can create a launcher for LightTable. `sudo gnome-desktop-item-edit /usr/share/applications/ --create-new`
@@ -83,39 +84,34 @@ You should see a window like this:
 
 Name the launcher LightTable. Type the path to the command `/usr/local/bin/LightTable/LightTable`. Click the icon. The LightTable icon can be found at `/usr/local/bin/LightTable/core/img/lticon.png`.
 
-### Opening files in LightTable from the command line *(optional)*
 
-If you'd prefer, you can open files/folders in LightTable from the command line by typing `light-table /path/to/the/file/you/want/to/open.clj`.
+## Getting setup with Heroku
 
-## Installing Git
+Heroku is the tool we will use in order to put your application online where others can see it.
 
-See if you already have Git installed with `git version`.
-If the `git` command is not found, install it with this command in the terminal:
+First, we need to create an account. Go to [Heroku](http://heroku.com) and click the "Sign up" link.
 
-`sudo apt-get install git`
+![Heroku step 1](img/heroku-step1.png)
 
-If you've used Git before then you should already have user.name and user.email configured.
-Otherwise, type this in the terminal:
+You will be taken to a form where you need to enter your email address in order to sign up. Fill out that form, and you will be sent an email with a link to click to continue the signup process.
 
-```
-git config --global user.name "Your Actual Name"
-git config --global user.email "Your Actual Email"
-```
-TIP: Use the same email address for git, github, and ssh.
+![Heroku step 2](img/heroku-step2.png)
 
-Verify by typing this in the terminal:
+After clicking on the link, you will be taken to another form where you will need to choose a password. Choose one and enter it twice.
 
-`git config --get user.name`
-Expected result:
-`your name`
+![Heroku step 3](img/heroku-step3.png)
 
-`git config --get user.email`
-Expected result:
-`your email address`
+After all that, you should be at your Heroku dashboard. There will be a link on the dashboard to download the Heroku Toolbelt. Download it now.
+
+![Heroku dashboard](img/ubuntu/heroku_dashboard_ubuntu.png)
+
+If you do not see this link on your dashboard, you can download the toolbelt from [toolbelt.heroku.com](https://toolbelt.heroku.com/).
+
+This will take you too a page with a terminal command. Copy this command and paste it into your terminal. Once the Heroku Toolbelt is installed, run the command `heroku login`. You will be prompted for your email and password on Heroku. If you are prompted to create an SSH key, say yes. If you enter them and the command ends successfully, congratulations!
 
 ## Testing your setup
 
-You have set up Java, Leiningen, Light Table, and Git on your computer--all the tools you will need for this course. Before starting, we need to test them out.
+You have set up Java, Leiningen, Light Table, Git, and Heroku on your computer--all the tools you will need for this course. Before starting, we need to test them out.
 
 Go to your terminal and run the following command:
 
@@ -153,26 +149,33 @@ At the bottom of the screen, you will see a cube moving and some text about conn
 
 ![Testing Light Table - running in the instarepl](img/ubuntu/testing-step4.png)
 
-If that worked, great! Close Light Table.
+If that worked, great! Close Light Table. We only have one more thing to test, Heroku.
 
-Finally, let's make sure the application you downloaded will run properly.  To test this, you will use Leiningen to run the application on your computer.  As this is a (very simple) web application, you should be able to use a web browser to see it runnning in all its humble glory.  Let's start with
+Go back to your terminal. You should still be in the `clojure-sample` directory.
+
+Run this command:
+
+`heroku create`
+
+There should be output about something being created. A URL will be displayed. Look at the following example:
+
+![Testing heroku create](img/ubuntu/testing-step5.png)
+
+Next, run the following commands:
 
 ```
-lein run
+git push heroku master
+heroku open
 ```
 
-This tells Leiningen to run your application.  Different applications run in different ways - this one starts up it's own little webserver on your computer.  If this is the first time you've run a web application, the output in the Terminal window (see below) may not make much sense, so let's test the application in a browser.
+Enter "yes" if you are asked if you are sure you want to connect, like in the following image:
 
-![Testing lein run](img/ubuntu/testing-lein-run.png)
+![Connecting via SSH](img/ubuntu/testing-step6.png)
 
-You now need to open a web browser (Chrome, Firefox, Safari, etc) and point it towards the application running on your computer.  Enter the following URL to access your application:
+Your browser should open (and take a long time to load), and you should see a website like the following:
 
-```
-http://localhost:8080/
-```
+![Testing heroku working](img/ubuntu/testing-step7.png)
 
-This is what your browser should look like if everything has been successful.
+If your browser does not open after running `heroku open`, start a browser and go to the URL displayed after you ran `heroku create`.
 
-![Testing in browser](img/ubuntu/testing-browser.png)
-
-Congratulations! You have actually made a very simple Clojure app, and your computer is all set up to make more.
+Congratulations! That website is running code you have on your computer that you have uploaded. You have actually made a very simple Clojure app, and your computer is all set up to make more.
