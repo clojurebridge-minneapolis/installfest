@@ -10,7 +10,7 @@
   * http://clojure.org/getting_started
   * http://clojure-doc.org/
   * http://clojuredocs.org/
-* Exercises that help learn Clojure:
+* Exercises that help learn Clojure
   * [Clojure koans](https://github.com/clojurebridge-minneapolis/clojure-koans)
   * A series of [youtube videos](https://www.youtube.com/playlist?list=PL1p6TgkbKXqyOwq6iSkce_EY5YWFHciHt) that help with koans
   * Another excellent collection of Clojure problems of different levels: [4clojure.com/](https://www.4clojure.com/)
@@ -21,6 +21,10 @@
   * Intellij with [Cursive](https://cursiveclojure.com/)
   * Vim with [Fireplace](https://github.com/tpope/vim-fireplace)
   * Sublime Text with [SublimeREPL](https://github.com/wuub/SublimeREPL)
+* Books and tutorials:
+  * [Clojure for the brave and true](http://www.braveclojure.com/) - not yet finished, but has an online version
+  * [Living Clojure](http://shop.oreilly.com/product/0636920034292.do)
+  * [Clojure from the ground up](https://aphyr.com/posts/301-clojure-from-the-ground-up-welcome) - an excellent resource for those new to programming. 
 * Videos
   * Past
     * Rich Hickey: [Simple made Easy](http://www.infoq.com/presentations/Simple-Made-Easy)
