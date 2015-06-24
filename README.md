@@ -8,7 +8,7 @@ Welcome to the ClojureBridge MN getting started page!
 * Track 2
   * [clojure-koans](https://github.com/clojurebridge-minneapolis/clojure-koans) *morning session*
   * [track2-functional](https://github.com/clojurebridge-minneapolis/track2-functional) *afternoon session*
-* Before you leave on Saturday please complete the [Survey](https://www.surveymonkey.com/r/95PD8LR)
+* Before you leave on Saturday please complete the [Survey](https://www.surveymonkey.com/r/95PD8LR) <br/>
   We're all volunteers and we really want to make ClojureBridge better!
   Your frank feedback is essential!
 * [Resources](docs/resources.md) *pointers to all kinds of Clojure resources*
