@@ -1,6 +1,6 @@
 # ClojureBridge MN - Fall 2015
 
-![QR-code](docs/img/clojurebridgemn-logo-1024.png)
+![ClojureBridgeMN](docs/img/clojurebridgemn-logo-1024.png)
 
 Welcome to the ClojureBridge MN getting started page!
 
