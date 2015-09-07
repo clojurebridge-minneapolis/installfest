@@ -83,7 +83,7 @@ to:
 ```
 
 Save the file, we should now see the koan runner move on to the next problem.
-Before tomorrow try to get through this set of koans:
+Before tomorrow try to get through this list of koans:
 
 ```
 01_equalities.clj
