@@ -9,7 +9,7 @@ Welcome to the ClojureBridge MN getting started page!
   * [track1-chatter](https://github.com/clojurebridge-minneapolis/track1-chatter) *the sample application for Track 1*
 * Track 2
   * [clojure-koans](https://github.com/clojurebridge-minneapolis/clojure-koans) *morning session*
-    * [clojure-koans-intro](https://github.com/clojurebridge-minneapolis/installfest/tree/master/docs/koans.md) *a quick guide to get you started on the Clojure koans during the installfest*
+    * [clojure-koans-intro](docs/koans.md) *a quick guide to get you started on the Clojure koans during the installfest*
   * [track2-functional](https://github.com/clojurebridge-minneapolis/track2-functional) *afternoon session*
 * Before you leave on Saturday please complete the [Survey](https://www.surveymonkey.com/r/95PD8LR) <br/>
   We're all volunteers and we really want to make ClojureBridge better!
