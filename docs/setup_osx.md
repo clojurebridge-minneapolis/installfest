@@ -163,6 +163,4 @@ Congratulations! That website is running code you have on your computer that you
 
 ## Try the koans
 
-If you're a track 2 student, try to tackle running the koans:
-
-[clojure-koans-intro](koans.md)
+If you're a track 2 student, try to tackle running the [koans](koans.md).
