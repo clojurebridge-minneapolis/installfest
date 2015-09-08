@@ -186,3 +186,7 @@ Congratulations! That website is running code you have on your computer that you
   This requires users' (owner's or administrator's) password.
   Sometimes, attendees haven't heard of such permission stuff.
   Be ready for that.
+
+## Try the koans
+
+If you're a track 2 student, try to tackle running the [koans](koans.md).
