@@ -21,8 +21,9 @@ The instructions for opening a terminal vary by platform:
 
 Now you have a terminal Window open you can go to your "HOME" directory.
 On Mac and Linux this is almost certainly the directory your Terminal
-window will start in (or you can type `cd $HOME`). On Windows you
-can type `cd %USERPROFILE%`.
+window will start in (or you can type `cd $HOME`).
+
+On Windows you can type `cd %USERPROFILE%`.
 
 From here you can create a directory to store your SSH keys:
 
