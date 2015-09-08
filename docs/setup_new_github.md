@@ -39,6 +39,7 @@ Copy all the contents of the file.
 ## Add the SSH to github
 
 Back in the github settings tab...
+
 1. Click "Add SSH Key"
 2. Enter a title for the key
 3. Paste the key contents
