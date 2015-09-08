@@ -26,9 +26,9 @@ left navigation bar:
 In your web browser navigate to your new public SSH key.
 
 The URL will be like:
-* Mac: file:///Users/clojurista/.ssh/id_rsa.ub
-* Windows: file:///c:|/Users/clojurista/.ssh/id_rsa.ub
-* Linux: file:///home/clojurista/.ssh/id_rsa.ub
+* Mac: [file:///Users/clojurista/.ssh/id_rsa.pub](file:///Users/clojurista/.ssh/id_rsa.pub)
+* Windows: [file:///c:|/Users/clojurista/.ssh/id_rsa.pub](file:///c:|/Users/clojurista/.ssh/id_rsa.pub)
+* Linux: [file:///home/clojurista/.ssh/id_rsa.pub](file:///home/clojurista/.ssh/id_rsa.pub)
 
 Except you will need to replace `clojurista` with your username.
 
