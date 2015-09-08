@@ -11,7 +11,7 @@ More information can be found at the Clojure Koans website: http://www.clojureko
 
 First lets clone the koans repository:
 
-`git clone git://github.com/functional-koans/clojure-koans.git`
+`git clone https://github.com/clojurebridge-minneapolis/clojure-koans`
 
 Lets poke around the repo we just cloned:
 
