@@ -1,5 +1,7 @@
 # ClojureBridge Setup
 
+* go back to the top [Installfest](../README.md) page
+
 _NOTE:_ These instructions are a work-in-progress any may have some rough edges!
 
 What are the goals of these new instructions?
