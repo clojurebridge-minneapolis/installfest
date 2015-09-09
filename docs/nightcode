@@ -1,0 +1,19 @@
+#!/bin/sh
+# nightcode
+
+JVM_OPTS=${JVM_OPTS:-"-server -Xms128m -Xmx512m"}
+# JVM_OPTS=${JVM_OPTS:-"-server -Xms128m -Xmx1g"}
+export JVM_OPTS
+
+program="nightcode"
+dir="$HOME/bin"
+cwd="$(pwd -P)"
+cd "$dir"
+jar="$(ls -1t nightcode*.jar | head -1)"
+if [ ! -e "$jar" ]; then
+    echo "${program}: jar not found!"
+    exit 1
+fi
+cd "$cwd"
+
+java $JVM_OPTS -jar "$dir/$jar" &

@@ -5,6 +5,8 @@ Go to the...
 * new [Setup](setup_new.md) instructions
 * next section [Install Leiningen](setup_new_lein.md)
 
+--------
+
 ## Download and install the JDK
 
 For developing Java (and thus Clojure) programs you will

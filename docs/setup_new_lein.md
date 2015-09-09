@@ -16,8 +16,10 @@ http://leiningen-win-installer.djpowell.net/
 We want to make sure that the `lein` command is accessible
 anywhere so we'll add it to the **PATH** environment variable.
 
-On Windows you can go to System Properties | Advanced | Environment
-Variables (see these alternate notes on setting the Windows PATH
+On Windows you can go to **System Properties | Advanced | Environment
+Variables**
+
+_NOTE: see these alternate notes on setting the Windows PATH:_
 [note 1](https://java.com/en/download/help/path.xml),
 [note 2](http://stackoverflow.com/questions/23400030/windows-7-add-path))
 
@@ -41,15 +43,15 @@ Then add the path to the Leiningen program `%USERPROFILE%\.lein\bin`
 For Mac and Linux you can download the `lein` script:
 
 ````
-mkdir ~/bin
-cd ~/bin
-curl https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
-chmod +x lein
-cd ..
-echo 'export PATH=$PATH:$HOME/bin' > .profile
-. .profile
+clojurista@mylaptop $ mkdir ~/bin
+clojurista@mylaptop $ cd ~/bin
+clojurista@mylaptop $ curl https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
+clojurista@mylaptop $ chmod +x lein
+clojurista@mylaptop $ cd ..
+clojurista@mylaptop $ echo 'export PATH=$PATH:$HOME/bin' > .profile
+clojurista@mylaptop $ . .profile
 ````
-## Test Leiningen
+## Test Leiningen (all platforms)
 
 Now you can change directories back to your HOME directory
 and verify that `lein` is in your path by typing:
