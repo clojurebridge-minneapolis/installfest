@@ -31,20 +31,20 @@ So double click on the nightcode jar:
 
 ![Launch nightcode](img/new/nc4.png)
 
-Finally you can open the clojure-getting-started project we worked on
+Finally you can open the **clojure-getting-started** project we worked on
 in Nightcode:
 
 ![Open clojure-getting-started](img/new/nc5.png)
 
 ## Setup Nightcode on Mac
 
-Change directories to your ~/bin directory and download nightcode,
+Change directories to your `~/bin` directory and download Nightcode,
 then download the nightcode launcher from our website.
 
 ````
 clojurista@mylaptop $ cd ~/bin
 clojurista@mylaptop $ curl https://github.com/oakes/Nightcode/releases/download/0.4.7/nightcode-0.4.7-standalone.jar
-clojurista@mylaptop $ curl nightcode
+clojurista@mylaptop $ curl https://raw.githubusercontent.com/clojurebridge-minneapolis/installfest/experimental/docs/nightcode
 clojurista@mylaptop $ chmod +x nightcode
 clojurista@mylaptop $ cd ..
 clojurista@mylaptop $ nightcode
