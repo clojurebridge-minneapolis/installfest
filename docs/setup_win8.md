@@ -78,6 +78,8 @@ After all that, you should be at your Heroku dashboard. There will be a link on 
 
 ![Heroku dashboard](img/heroku-dashboard.png)
 
+If you do not see this link on your dashboard, you can download the toolbelt from [toolbelt.heroku.com](https://toolbelt.heroku.com/).
+
 You will download an .exe file. Run this executable to install the Heroku Toolbelt and follow all prompts from the installation wizard.
 
 Before you can use Heroku, you will have to set up SSH, the way your computer communicates with Heroku.
