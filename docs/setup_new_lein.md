@@ -45,7 +45,7 @@ For Mac and Linux you can download the `lein` script:
 ````
 clojurista@mylaptop $ mkdir ~/bin
 clojurista@mylaptop $ cd ~/bin
-clojurista@mylaptop $ curl https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
+clojurista@mylaptop $ curl -O https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
 clojurista@mylaptop $ chmod +x lein
 clojurista@mylaptop $ cd ..
 clojurista@mylaptop $ echo 'export PATH=$PATH:$HOME/bin' > .profile
