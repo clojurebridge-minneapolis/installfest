@@ -78,6 +78,8 @@ After all that, you should be at your Heroku dashboard. There will be a link on 
 
 ![Heroku dashboard](img/heroku-dashboard.png)
 
+If you do not see this link on your dashboard, you can download the toolbelt from [toolbelt.heroku.com](https://toolbelt.heroku.com/).
+
 You will download an .exe file. Run this executable to install the Heroku Toolbelt and follow all prompts from the installation wizard.
 
 Before you can use Heroku, you will have to set up SSH, the way your computer communicates with Heroku.
@@ -86,8 +88,18 @@ First, look up what your user directory is. You can find it by running `echo %US
 
 ```
 mkdir "%USERPROFILE%\.ssh"
+```
 
+Then, if you have 32-bit Windows, run this command:
+
+```
 "C:\Program Files\Git\bin\ssh-keygen.exe"
+```
+
+If you have 64-bit Windows, run this command instead:
+
+```
+"C:\Program Files (x86)\Git\bin\ssh-keygen.exe"
 ```
 
 The quotes are necessary on the `ssh-keygen.exe` command. When you run `ssh-keygen.exe`, you will need to type the name of your user directory - everything from "C:\" onward - plus `\.ssh\id_rsa` when it asks you where to save the key. Be careful to type everything exactly. When it asks to 'Enter passphrase' just hit Enter, then Enter again. *Look at the following example:*
