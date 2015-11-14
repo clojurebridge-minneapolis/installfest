@@ -64,7 +64,7 @@ First, we need to create an account. Go to [Heroku](http://heroku.com) and click
 
 ![Heroku step 1](img/heroku-step1.png)
 
-You will be taken to a form where you need to enter your email address in order to sign up. Fill out that form, and you will be sent an email with a link to click to continue the signup process.
+You will be taken to a form where you can create an account. Fill out that form, and you will be sent an email with a link to click to continue the signup process.
 
 ![Heroku step 2](img/heroku-step2.png)
 
@@ -72,9 +72,9 @@ After clicking on the link, you will be taken to another form where you will nee
 
 ![Heroku step 3](img/heroku-step3.png)
 
-After all that, you should be at your Heroku dashboard. There will be a link on the dashboard to download the Heroku Toolbelt. Download it now.
+After all that, go [here](https://devcenter.heroku.com/articles/getting-started-with-clojure#set-up) and click "Download Heroku Toolbelt for Mac OS X".
 
-![Heroku dashboard](img/heroku-dashboard.png)
+![Heroku dashboard](img/heroku-getting-started.png)
 
 If you do not see this link on your dashboard, you can download the toolbelt from [toolbelt.heroku.com](https://toolbelt.heroku.com/).
 
