@@ -43,8 +43,8 @@ then download the nightcode launcher from our website.
 
 ````
 clojurista@mylaptop $ cd ~/bin
-clojurista@mylaptop $ curl -O https://github.com/oakes/Nightcode/releases/download/0.4.7/nightcode-0.4.7-standalone.jar
-clojurista@mylaptop $ curl -O https://raw.githubusercontent.com/clojurebridge-minneapolis/installfest/experimental/docs/nightcode
+clojurista@mylaptop $ curl -LO https://github.com/oakes/Nightcode/releases/download/0.4.7/nightcode-0.4.7-standalone.jar
+clojurista@mylaptop $ curl -LO https://raw.githubusercontent.com/clojurebridge-minneapolis/installfest/experimental/docs/nightcode
 clojurista@mylaptop $ chmod +x nightcode
 clojurista@mylaptop $ cd ..
 clojurista@mylaptop $ nightcode
