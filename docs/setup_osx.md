@@ -43,7 +43,7 @@ sudo mv lein /usr/local/bin/lein
 sudo chmod a+x /usr/local/bin/lein
 cd $HOME
 echo 'PATH=$PATH:/usr/local/bin' >> .bashrc
-exec bash
+source .bashrc
 ```
 
 After you run the above commands, run the `lein version` command. It should take a while to run, as it will download some resources it needs the first time. If it completes successfully, you are golden! If not, ask an instructor for help.
