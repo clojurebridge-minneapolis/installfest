@@ -8,3 +8,4 @@
 # silly Mac filesystem
 *.DS_Store*
 *._*
+docs/_build/
