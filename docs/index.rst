@@ -9,18 +9,21 @@ Welcome to Clojurebridge MN Installfest's documentation!
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
-   setup
    setup_new
-
-
+   setup_new_irc
+   setup_new_heroku
+   setup_new_ssh
+   setup_new_github
+   setup_new_java
+   setup_new_lein
+   setup_new_heroku2
+   setup_new_nightcode
+   setup_new_koans
 
 Indices and tables
 ==================
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-* :ref:`glossary`
+* :doc:`Glossary <glossary>`
 
