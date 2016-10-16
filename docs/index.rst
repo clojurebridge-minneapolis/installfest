@@ -11,6 +11,7 @@ Contents:
 .. toctree::
    :maxdepth: 1
 
+   setup
    setup_new
    setup_new_irc
    setup_new_heroku
