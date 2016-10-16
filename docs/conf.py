@@ -3,6 +3,7 @@
 import os
 import sphinx_rtd_theme
 from recommonmark.parser import CommonMarkParser
+from recommonmark.transform import AutoStructify
 # -*- coding: utf-8 -*-
 #
 # Clojurebridge MN Installfest documentation build configuration file, created by
@@ -434,3 +435,8 @@ epub_exclude_files = ['search.html']
 # If false, no index is generated.
 #
 # epub_use_index = True
+def setup(app):
+    app.add_config_value('recommonmark_config', {
+        'enable_auto_doc_ref': True,
+    }, True)
+    app.add_transform(AutoStructify)
