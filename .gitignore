@@ -1,5 +1,10 @@
 # .gitignore
 
+# project specific
+bin/
+logs/
+docs/_build
+
 # Editor artifacts
 .nrepl-port
 *~
