@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting Started with Heroku &mdash; Clojurebridge MN Installfest Sunday Oct 23 2016 @ 18:40:57 tmarble documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Clojurebridge MN Installfest Sunday Oct 23 2016 @ 18:40:57 tmarble documentation" href="index.html"/>
+        <link rel="next" title="Install Nightcode" href="setup_new_nightcode.html"/>
+        <link rel="prev" title="Install Leiningen" href="setup_new_lein.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Clojurebridge MN Installfest
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                November 4-5, 2016
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Installfest: Getting Set Up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_new.html">ClojureBridge Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_new_irc.html">Join the #clojure.mn channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_new_heroku.html">Install the Heroku Toolbelt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_new_ssh.html">Create an SSH key</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_new_github.html">Setup github</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_new_java.html">Install Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_new_lein.html">Install Leiningen</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started with Heroku</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#verify-the-heroku-toolbelt-installation">Verify the heroku toolbelt installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login-to-heroku">Login to Heroku</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#make-a-new-directory-for-the-application">Make a new directory for the application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clone-the-clojure-getting-started-repo">Clone the clojure-getting-started repo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#start-the-program">Start the program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#view-the-running-program-in-a-web-browser">View the running program in a web browser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stop-the-program">Stop the program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#publish-the-program-to-the-internet-using-heroku">Publish the program to the Internet using Heroku</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="setup_new_nightcode.html">Install Nightcode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_new_koans.html">Try Clojure Koans in Nightcode</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Clojurebridge MN Installfest</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Getting Started with Heroku</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/setup_new_heroku2.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started-with-heroku">
+<span id="getting-started-with-heroku"></span><h1>Getting Started with Heroku<a class="headerlink" href="#getting-started-with-heroku" title="Permalink to this headline">¶</a></h1>
+<p>Go to the...</p>
+<ul class="simple">
+<li>prev section <a class="reference internal" href="setup_new_lein.html"><span class="doc">Install Leiningen</span></a></li>
+<li>new <a class="reference internal" href="setup_new.html"><span class="doc">Setup</span></a> instructions</li>
+<li>next section <a class="reference internal" href="setup_new_nightcode.html"><span class="doc">Install Nightcode</span></a></li>
+</ul>
+<hr class="docutils" />
+<div class="section" id="verify-the-heroku-toolbelt-installation">
+<span id="verify-the-heroku-toolbelt-installation"></span><h2>Verify the heroku toolbelt installation<a class="headerlink" href="#verify-the-heroku-toolbelt-installation" title="Permalink to this headline">¶</a></h2>
+<p>In a previous step we installed the Heroku toolbelt.
+Check the Heroku version on the command line:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">heroku</span> <span class="n">version</span>
+</pre></div>
+</div>
+<p>You should see something like <code class="docutils literal"><span class="pre">heroku/toolbelt/3.38.3</span></code>...</p>
+</div>
+<div class="section" id="login-to-heroku">
+<span id="login-to-heroku"></span><h2>Login to Heroku<a class="headerlink" href="#login-to-heroku" title="Permalink to this headline">¶</a></h2>
+<p>Now we&#8217;ll use the toolbelt to login to your Heroku account:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">heroku</span> <span class="n">login</span>
+</pre></div>
+</div>
+<p>You will be prompted for the e-mail address and password you
+used when you signed up for Heroku.</p>
+<p><em>NOTE: behind the scenes it will copy your public SSH key to your Heroku profile).</em></p>
+<p><img alt="Login to Heroku" src="_images/heroku3.png" /></p>
+</div>
+<div class="section" id="make-a-new-directory-for-the-application">
+<span id="make-a-new-directory-for-the-application"></span><h2>Make a new directory for the application<a class="headerlink" href="#make-a-new-directory-for-the-application" title="Permalink to this headline">¶</a></h2>
+<p>We&#8217;re going to follow the instructions in the https://github.com/heroku/clojure-getting-started repo...</p>
+<p>First things first.. Let&#8217;s make a directory where that repo
+should land... One commen convention is to use</p>
+<p><strong>~/src/SERVICE/ORGANIZATION/REPO</strong></p>
+<p><em>where</em></p>
+<ul class="simple">
+<li>~ is your home directory</li>
+<li>src is where you will keep source code</li>
+<li>SERVICE is the name of the service provide (e.g. github)</li>
+<li>ORGANIZATION is the name of the user or organization publishing the repository (e.g. clojurebridge-minneapolis)</li>
+<li>REPO is the name of the repository itself (e.g. track1-chatter)</li>
+</ul>
+<p>So for the current example we can make that series of directories
+like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>clojurista@mylaptop $ mkdir -p ~/src/github/heroku
+clojurista@mylaptop $ cd ~/src/github/heroku
+</pre></div>
+</div>
+<p><img alt="Make directories for your repo" src="_images/heroku6.png" /></p>
+</div>
+<div class="section" id="clone-the-clojure-getting-started-repo">
+<span id="clone-the-clojure-getting-started-repo"></span><h2>Clone the clojure-getting-started repo<a class="headerlink" href="#clone-the-clojure-getting-started-repo" title="Permalink to this headline">¶</a></h2>
+<p>Now we&#8217;ll</p>
+<ol class="simple">
+<li>Download a copy of the repo from github to your local hard drive</li>
+<li>Change to the new repo directory</li>
+<li>Start a Leiningen REPL</li>
+</ol>
+<div class="highlight-default"><div class="highlight"><pre><span></span>clojurista@mylaptop $ git clone https://github.com/heroku/clojure-getting-started.git
+clojurista@mylaptop $ cd clojure-getting-started
+clojurista@mylaptop $ lein repl
+</pre></div>
+</div>
+<p><img alt="Start the program" src="_images/heroku9.png" /></p>
+</div>
+<div class="section" id="start-the-program">
+<span id="start-the-program"></span><h2>Start the program<a class="headerlink" href="#start-the-program" title="Permalink to this headline">¶</a></h2>
+<p>Now that the REPL has started you can enter these
+to commands to start the program:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">user</span><span class="o">=&gt;</span> <span class="p">(</span><span class="n">require</span> <span class="s1">&#39;clojure-getting-started.web)</span>
+<span class="n">user</span><span class="o">=&gt;</span> <span class="p">(</span><span class="k">def</span> <span class="nf">server</span> <span class="p">(</span><span class="n">clojure</span><span class="o">-</span><span class="n">getting</span><span class="o">-</span><span class="n">started</span><span class="o">.</span><span class="n">web</span><span class="o">/-</span><span class="n">main</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><em>NOTE: on some platforms your firewall may need to ask permissions for Java to connect to the Internet</em></p>
+</div>
+<div class="section" id="view-the-running-program-in-a-web-browser">
+<span id="view-the-running-program-in-a-web-browser"></span><h2>View the running program in a web browser<a class="headerlink" href="#view-the-running-program-in-a-web-browser" title="Permalink to this headline">¶</a></h2>
+<p>You should be able to open your browser to: http://localhost:5000</p>
+<p>...and see a very simple web page served from the sample program you just started!</p>
+<p><img alt="View the program" src="_images/heroku10.png" /></p>
+</div>
+<div class="section" id="stop-the-program">
+<span id="stop-the-program"></span><h2>Stop the program<a class="headerlink" href="#stop-the-program" title="Permalink to this headline">¶</a></h2>
+<p>Once you&#8217;ve tried the server you can shut it down gracefully
+with the <code class="docutils literal"><span class="pre">(.stop</span> <span class="pre">server)</span></code> command and exit the REPL with <code class="docutils literal"><span class="pre">(exit)</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">user</span><span class="o">=&gt;</span> <span class="p">(</span><span class="o">.</span><span class="n">stop</span> <span class="n">server</span><span class="p">)</span>
+<span class="n">user</span><span class="o">=&gt;</span> <span class="p">(</span><span class="n">exit</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="View the program" src="_images/heroku11.png" /></p>
+</div>
+<div class="section" id="publish-the-program-to-the-internet-using-heroku">
+<span id="publish-the-program-to-the-internet-using-heroku"></span><h2>Publish the program to the Internet using Heroku<a class="headerlink" href="#publish-the-program-to-the-internet-using-heroku" title="Permalink to this headline">¶</a></h2>
+<p>That was cool, but only worked on your local laptop.
+Now you can publish the application to Heroku so anyone
+on the Internet can access it!</p>
+<p>We&#8217;ll use the Heroku toolbelt to put the program into production...</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>clojurista@mylaptop $ heroku create
+clojurista@mylaptop $ git push heroku master
+clojurista@mylaptop $ heroku open
+</pre></div>
+</div>
+<p>When you publish a program to Heroku is uses a kind of random
+domain name. You can type this into your browser by hand -or-
+simply type <code class="docutils literal"><span class="pre">heroku</span> <span class="pre">open</span></code> to open the correct URL in your browser.</p>
+<p>Now you see the same program running.. With the important
+difference that you can share this URL with all of your friends!</p>
+<p><img alt="View the program on the Internet" src="_images/heroku13.png" /></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="setup_new_nightcode.html" class="btn btn-neutral float-right" title="Install Nightcode" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="setup_new_lein.html" class="btn btn-neutral" title="Install Leiningen" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Clojurebridge MN staff and volunteers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'Sunday Oct 23 2016 @ 18:40:57 tmarble',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
