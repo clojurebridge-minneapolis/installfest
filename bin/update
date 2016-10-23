@@ -1,0 +1,118 @@
+#!/bin/sh
+# update [user [timestamp]]
+# this shell script is run after this repo has been pushed
+
+set -e
+
+program=$(basename "$0")
+dir="$(dirname $0)"
+cd "$dir"
+dir="$(pwd -P)"
+cd ..
+top="$(pwd -P)"
+logs="$top/logs"
+
+started="-- $dir/${program}: starting at $(date) --"
+
+if [ ! -d "$logs" ]; then
+    mkdir "$logs"
+fi
+
+# for logrotate
+export PATH=$PATH:/usr/sbin:/usr/local/bin
+
+# for ssha
+export HOME=/var/www
+
+# enable ssha
+export SSHA_HOME=/usr/local/src/ssha
+
+passwordless() {
+    verbose=""
+    verbose_ssha=""
+    ssha_functions=true
+    . $SSHA_HOME/ssha
+    do_ssha_passwordless # will call return
+}
+passwordless
+
+envfile="$dir/server.env"
+if [ -e "$envfile" ]; then
+    . $envfile
+fi
+SERVER_PROJECT=${SERVER_PROJECT:-"server"}
+logfile="$logs/$program.log"
+if [ -e "$logfile" ]; then
+    mv "$logfile" "$logfile.1"
+    sleep 1
+fi
+exec > $logfile 2>&1
+
+echo $started
+
+rc=1 # assume failure
+trap 'summarize' 0 INT QUIT
+summarize() {
+    if [ $rc -eq 1 ]; then
+        echo "FAILED"
+        if [ -n "$SERVER_ADMIN" ]; then
+            echo "notifying administrator: $SERVER_ADMIN"
+            mailx -s "Failure to update $SERVER_PROJECT" $SERVER_ADMIN < $logfile
+        fi
+    else
+        echo "SUCCESS"
+    fi
+}
+
+if [ -n "$1" ]; then
+    user="$1"
+else
+    user="$USERNAME"
+fi
+
+if [ -n "$2" ]; then
+    timestamp="$2"
+else
+    timestamp="now"
+fi
+
+# update server.env
+echo "-- update commit user $user timestamp $timestamp --"
+if [ -e bin/server.env ]; then
+    egrep -v '(SERVER_COMMITTER|SERVER_TIMESTAMP)' bin/server.env > bin/server.env.1
+else
+    touch bin/server.env.1
+fi
+mv bin/server.env.1 bin/server.env
+echo "export SERVER_COMMITTER=\"$user\"" >> bin/server.env
+echo "export SERVER_TIMESTAMP=\"$timestamp\"" >> bin/server.env
+
+# get the latest repo
+# do NOT pollute the outputstream
+echo "-- git pull from master --"
+git pull # > /dev/null 2>&1
+
+# build the uberjar
+# echo "-- build uberjar --"
+# lein prod # > /dev/null 2>&1
+
+# restart the server
+# $dir/server -v restart # > /dev/null 2>&1
+
+echo "-- FUTURE build RTD --"
+
+echo "-- rsync RTD docs/_build/html/ to /srv/installfest.gh-pages/ --"
+
+echo "-- verify ssh --"
+ssh-add -l
+
+echo "-- fastforward gh-pages  --"
+cd /srv/installfest.gh-pages
+git pull origin gh-pages
+echo "$SERVER_TIMESTAMP $SERVER_COMMITTER" > date.txt
+echo "-- commit updates to gh-pages  --"
+git commit -a -m "auto update $SERVER_TIMESTAMP $SERVER_COMMITTER"
+echo "-- push gh-pages  --"
+git push
+
+rc=0
