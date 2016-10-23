@@ -33,3 +33,7 @@ Choose your operating system to get setup instructions:
 * [Windows 7](setup_win7.md)
 * [Windows 8](setup_win8.md)
 * [Ubuntu Linux](setup_ubuntu.md)
+
+Alternatively you my try the new setup instructions (_experimental_):
+
+* [ClojureBridge Setup](setup_new.md)
