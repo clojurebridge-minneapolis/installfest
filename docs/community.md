@@ -6,7 +6,7 @@ help each other!
 
 ## Clojurians Slack
 
-See the section on Slack under **Installfest: Getting Set Up**
+See the section on Slack under **Installfest**
 
 ## Minneapolis Clojure user's group: clojure.mn
 

@@ -1,5 +1,5 @@
-Installfest: Getting Set Up
-===========================
+Installfest
+===========
 
 ## Requirements
 

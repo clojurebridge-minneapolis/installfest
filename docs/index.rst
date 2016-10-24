@@ -12,6 +12,9 @@ Contents:
    :maxdepth: 1
 
    setup
+   welcome
+   track1
+   track2
    resources
    community
 
