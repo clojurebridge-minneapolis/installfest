@@ -12,16 +12,6 @@ Contents:
    :maxdepth: 1
 
    setup
-   setup_new
-   setup_new_irc
-   setup_new_heroku
-   setup_new_ssh
-   setup_new_github
-   setup_new_java
-   setup_new_lein
-   setup_new_heroku2
-   setup_new_nightcode
-   setup_new_koans
    resources
    community
 

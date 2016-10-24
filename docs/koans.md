@@ -1,4 +1,4 @@
-# The koans
+# Older koans documentation
 
 The Clojure Koans are a series of exercises designed to teach Clojure. Periodically
 through the track 2 curriculum we'll be referencing them. For this document we'll
@@ -7,7 +7,7 @@ couple sets of problems.
 
 More information can be found at the Clojure Koans website: http://www.clojurekoans.com
 
-# Getting started
+** Getting started **
 
 First lets clone the koans repository:
 

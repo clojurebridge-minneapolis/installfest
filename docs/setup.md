@@ -34,6 +34,17 @@ Choose your operating system to get setup instructions:
 * [Windows 8](setup_win8.md)
 * [Ubuntu Linux](setup_ubuntu.md)
 
-Alternatively you my try the new setup instructions (_experimental_):
+## Experimental Instructions (to be merged)
 
-* [ClojureBridge Setup](setup_new.md)
+*NOTE: This instructions will be merged into the section above*
+
+* [Join the #clojure.mn channel](setup_new_irc.md)
+* [Install the Heroku Toolbelt](setup_new_heroku.md)
+* [Create an SSH key](setup_new_ssh.md)
+* [Setup github](setup_new_github.md)
+* [Install Java](setup_new_java.md)
+* [Install Leiningen](setup_new_lein.md)
+* [Getting Started with Heroku](setup_new_heroku2.md)
+* [Install Nightcode](setup_new_nightcode.md)
+* [Older koans doc](koans.md)
+* [Try Clojure Koans in Nightcode](setup_new_koans.md)
