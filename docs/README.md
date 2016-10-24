@@ -15,6 +15,7 @@ For Mac and WIndows
 3. `pip install -r requirements.txt`
 
 For Linux (e.g. debian unstable)
+
 1. `apt-get install python-alabaster python-argh python-babel python-recommonmark python-docutils python-imagesize python-livereload python-markupsafe python-pathtools python-pygments python-yaml python-recommonmark python-six python-snowballstemmer python-sphinx python-sphinx-rtd-theme python-tornado python-watchdog python-pip`
 2. `pip install port-for`
 3. `pip install sphinx-autobuild`
