@@ -58,8 +58,8 @@ source_parsers = { '.md': CommonMarkParser, }
 master_doc = 'index'
 
 # General information about the project.
-project = 'ClojureBridgeMN Installfest'
-copyright = '2016, ClojureBridgeMN volunteers'
+project = 'ClojureBridgeMN Documentation'
+copyright = '2016 ClojureBridgeMN volunteers'
 author = 'ClojureBridgeMN volunteers'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -256,7 +256,7 @@ html_static_path = ['_static']
 # html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'ClojureBridgeMNInstallfestdoc'
+htmlhelp_basename = 'ClojureBridgeMNdoc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -282,7 +282,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'ClojureBridgeMNInstallfest.tex', 'ClojureBridgeMN Installfest Documentation',
+    (master_doc, 'ClojureBridgeMN.tex', 'ClojureBridgeMN Documentation',
      'ClojureBridgeMN volunteers', 'manual'),
 ]
 
@@ -324,7 +324,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'clojurebridgemninstallfest', 'ClojureBridgeMN Installfest Documentation',
+    (master_doc, 'clojurebridgemn', 'ClojureBridgeMN  Documentation',
      [author], 1)
 ]
 
@@ -339,8 +339,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'ClojureBridgeMNInstallfest', 'ClojureBridgeMN Installfest Documentation',
-     author, 'ClojureBridgeMNInstallfest', 'One line description of project.',
+    (master_doc, 'ClojureBridgeMN', 'ClojureBridgeMN Documentation',
+     author, 'ClojureBridgeMN', 'ClojureBridgeMN Documentation',
      'Miscellaneous'),
 ]
 
