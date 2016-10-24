@@ -22,8 +22,10 @@ Contents:
    setup_new_heroku2
    setup_new_nightcode
    setup_new_koans
+   resources
+   community
 
-Indices and tables
-==================
+Reference
+=========
 
 * :doc:`Glossary <glossary>`

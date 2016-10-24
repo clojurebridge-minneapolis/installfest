@@ -1,4 +1,4 @@
-# glossary
+# Glossary
 
 A glossary of terminology specific to Clojure. Terms
 are listed in alphabetical order.
