@@ -1,6 +1,12 @@
 Welcome to ClojureBridge
 ========================
 
+
+## Agenda
+
+* [Friday](friday.md)
+* [Saturday](saturday.md)
+
 ## Introductions
 
 We'll go around the room and ask everyone to introduce themselves and mention
