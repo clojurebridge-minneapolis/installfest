@@ -20,17 +20,25 @@ The prompt (where you will type your commands) may look different: it usually sh
 
 For the rest of this setup, I will tell you to run commands in your terminal. When I say that, I mean "type the command into the terminal and press the Return key."
 
-## Making sure Java is installed
+## Install Java
 
-Run `java -version` in your terminal. If you do not have Java installed, Ubuntu will prompt you to install it. It should look something like this:
+Instructions vary by Linux distribution... For Debian and Ubuntu you
+can update the package manager and install OpenJDK 8 like this:
 
-![no java](img/ubuntu/no_java.png)
+````
+# apt-get update
+# apt-get install openjdk-8-jdk
+````
 
-Follow all of the directions Ubuntu gives you, selecting the package "openjdk-7-jre-headless" then return to this part of the tutorial and run `java -version` again.
+When Java is installed, you will see something like this in your terminal:
 
-If Java is installed, you will see something like this in your terminal:
-
-![Java version](img/ubuntu/java_version.png)
+````
+clojurista@mylaptop $ java -version
+openjdk version "1.8.0_111"
+OpenJDK Runtime Environment (build 1.8.0_111-8u111-b14-2-b14)
+OpenJDK 64-Bit Server VM (build 25.111-b14, mixed mode)
+clojurista@mylaptop $
+````
 
 The details of Java's version may differ from what you see above; that is perfectly fine.
 

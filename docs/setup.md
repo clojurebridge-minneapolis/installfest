@@ -48,7 +48,7 @@ Choose your operating system to get setup instructions:
 * [OS X](setup_osx.md)
 * [Windows 7](setup_win7.md)
 * [Windows 8](setup_win8.md)
-* [Ubuntu Linux](setup_ubuntu.md)
+* [Linux](setup_ubuntu.md)
 
 ## Experimental Instructions (to be merged)
 
@@ -57,7 +57,6 @@ Choose your operating system to get setup instructions:
 * [Install the Heroku Toolbelt](setup_new_heroku.md)
 * [Create an SSH key](setup_new_ssh.md)
 * [Setup github](setup_new_github.md)
-* [Install Java](setup_new_java.md)
 * [Install Leiningen](setup_new_lein.md)
 * [Getting Started with Heroku](setup_new_heroku2.md)
 * [Install Nightcode](setup_new_nightcode.md)
