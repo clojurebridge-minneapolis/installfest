@@ -31,20 +31,17 @@ in Nightcode:
 
 ## Setup Nightcode on Mac
 
-Change directories to your `~/bin` directory and download Nightcode,
-then download the nightcode launcher from our website.
+On the Nightcode homepage select the download for Mac. Open the Downloads
+directory in a Finder window and double click the Nightcode-2.1.5.dmg file.
+Drag the Nightcode app into the Applications directory.
 
-````
-clojurista@mylaptop $ cd ~/bin
-clojurista@mylaptop $ curl -LO https://github.com/oakes/Nightcode/releases/download/0.4.7/nightcode-0.4.7-standalone.jar
-clojurista@mylaptop $ curl -LO https://raw.githubusercontent.com/clojurebridge-minneapolis/installfest/experimental/docs/nightcode
-clojurista@mylaptop $ chmod +x nightcode
-clojurista@mylaptop $ cd ..
-clojurista@mylaptop $ nightcode
-````
+![Mac Install](img/new/nc_mac0.png)
 
-Since the `~/bin` directory is already in your **PATH** you can
-start nightcode from anywhere with `nightcode`.
+Nightcode can now be launched from Finder, Launchpad, or Spotlight. Note
+that you will see the following prompt the first time Nightcode is opened,
+click **Open**.
+
+![Open Prompt](img/new/nc_mac1.png)
 
 Now you can open the **clojure-getting-started** repo in Nightcode (see above).
 
