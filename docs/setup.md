@@ -3,27 +3,43 @@ Installfest
 
 ## Requirements
 
-Everyone in the workshop should have a laptop. If it is running Windows, it should be running Windows 7 or above. If it is running OS X, it should be running 10.7 "Lion" or above. If it is running Linux, you are probably fine.
+In order to run Clojure and the tools we'll be using for
+programming we need to install some free software on your laptop.
+Most modern laptops should work just fine. Just to be sure
+the requirements for each operating system are...
 
-If anyone attending does not have access to a laptop running one of the above choices, let the instructors know. You can either pair with someone else, or we can provide a virtual machine that you can run if you have a laptop.
+* **Mac OS X**<br/>
+  Any Intel-based computer running Mac OS X 10.8 (Mountain Lion) or later.
+
+* **Windows**<br/>
+  Windows 7 or later
+
+* **Linux**<br/>
+  Any recent distribution that includes **openjdk-8-jdk** or can install
+  [JDK 8 from Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html) should be fine.
+
+If you don't have access to a laptop or your laptop doesn't meet
+the requirements above we have a few spare laptops that you can borrow.
 
 ## What we are installing
 
 By the end of these instructions, you will have the following installed:
 
-* Java, a "virtual machine" that Clojure runs atop of
-* Leiningen, a tool for running Clojure programs
-* Light Table, an editor for Clojure and other programming languages
-* The Heroku Toolbelt, a program for putting your Clojure application on the web
-* Git, a program for managing your program's code, which is included in the Heroku Toolbelt
-* An Internet Relay Chat (IRC) client
+* **Java** the platform atop which Clojure runs
+* **Leiningen** a build tool for Clojure programs
+* **Nightcode** an Integrated Development Environment for Clojure
+* **Git** a program for saving and sharing your program's code (included in the Heroku Toolbelt)
+* The **Heroku** Toolbelt: a program for publishing your Clojure application on the web
 
 And you will have:
 
-* Created a ````ssh```` key (the public part of which will be uploaded to github and heroku)
+* An account on **Slack** so you can chat with students and volunteers online
 * Copied the example chat application with ````git clone````
-* Pushed your copy of the chat application to heroku
-* Joined the ````#clojure.mn```` IRC channel
+* Pushed your copy of the chat application to Heroku so it's *live on the Internet*
+
+## Instructions for all: Slack
+
+* [Slack](slack.md)
 
 ## Instructions by operating system
 
@@ -38,7 +54,6 @@ Choose your operating system to get setup instructions:
 
 *NOTE: This instructions will be merged into the section above*
 
-* [Join the #clojure.mn channel](setup_new_irc.md)
 * [Install the Heroku Toolbelt](setup_new_heroku.md)
 * [Create an SSH key](setup_new_ssh.md)
 * [Setup github](setup_new_github.md)
