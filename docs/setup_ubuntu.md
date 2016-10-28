@@ -1,12 +1,5 @@
-Ubuntu Setup
-==========
-
-* Start a terminal
-* Make sure Java is installed
-* Get Leiningen installed
-* Get Light Table installed
-* Get Heroku installed (includes Git)
-* Test installation
+Linux Setup
+===========
 
 ## Starting a terminal
 
@@ -22,25 +15,52 @@ For the rest of this setup, I will tell you to run commands in your terminal. Wh
 
 ## Install Java
 
-Instructions vary by Linux distribution... For Debian and Ubuntu you
-can update the package manager and install OpenJDK 8 like this:
+Typically you can use the Java that's packaged or your Linux
+distribution (e.g. for Debian and Ubuntu it's the package
+**openjdk-8-jdk**). However because we're using Nightcode and
+Nightcode *requires* the Oracle JDK you will need to download
+and install it from the [Oracle Java SE Downloads](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) page.
 
-````
-# apt-get update
-# apt-get install openjdk-8-jdk
-````
+You can install the Oracle JDK one of your subdirectories like this:
 
-When Java is installed, you will see something like this in your terminal:
-
-````
+```
+clojurista@mylaptop $ mkdir -p ~/src/oracle/
+clojurista@mylaptop $ cd ~/src/oracle/
+clojurista@mylaptop $ tar -zxf jdk-8u112-linux-x64.tar.gz
+clojurista@mylaptop $ export JAVA_HOME=$HOME/src/oracle/jdk1.8.0_112
+clojurista@mylaptop $ export PATH=$JAVA_HOME/bin:$HOME/bin:$PATH
+clojurista@mylaptop $ which java
+/home/clojurista/src/oracle/jdk1.8.0_112/bin/java
 clojurista@mylaptop $ java -version
-openjdk version "1.8.0_111"
-OpenJDK Runtime Environment (build 1.8.0_111-8u111-b14-2-b14)
-OpenJDK 64-Bit Server VM (build 25.111-b14, mixed mode)
+java version "1.8.0_112"
+Java(TM) SE Runtime Environment (build 1.8.0_112-b15)
+Java HotSpot(TM) 64-Bit Server VM (build 25.112-b15, mixed mode)
 clojurista@mylaptop $
-````
+```
+
+*NOTE: your `~/bin` directory was also added to your PATH because you may want to put the Nightcode launcher script there*
 
 The details of Java's version may differ from what you see above; that is perfectly fine.
+
+## Installing Nightcode
+
+On the [Nightcode home page](https://sekao.net/nightcode/) you can download
+and install a `*.deb` for Debian/Ubuntu, `*.rpm` for RedHat/Fedora,
+or `*.jar` file for any other distribution.
+
+If you download the `*.jar` you can place it in your `~/bin` directory and
+use our handy launcher script. NOTE: for this method we also install the
+Clojure jar here to get started:
+
+```
+clojurista@mylaptop $ cd ~/bin
+clojurista@mylaptop $ mv ~/Downloads/Nightcode*.jar ./
+clojurista@mylaptop $ curl -O https://raw.githubusercontent.com/clojurebridge-minneapolis/installfest/master/docs/linux/nightcode
+clojurista@mylaptop $ chmod +x nightcode
+```
+
+Now you should be able to launch it by typing `nightcode` in a terminal.
+
 
 ## Installing Leiningen
 
@@ -63,34 +83,6 @@ exec bash
 ```
 
 After you run the above commands, run the `lein version` command. It should take a while to run, as it will download some resources it needs the first time. If it completes successfully, you are golden! If not, ask an instructor for help.
-
-## Installing Light Table
-
-You will need to know whether you are running the 32-bit or 64-bit version of Ubuntu. To find out, click Dash Home and type Details. You should see a window like this:
-
-![Ubuntu Version](img/ubuntu/ubuntu-version.png)
-
-Alternatively, open your terminal and type `uname -m` if the output says "x86_64" you have a 64-bit OS, if it says "i686" you have a 32-bit OS.
-
-Go to the [Light Table site](http://www.lighttable.com/). On the page there, you should see a set of buttons that have download links for Light Table.
-Depending on your architecture, click the "Linux64" or "Linux32" button and select the "Save file".
-
-![Light Table downloads](img/ubuntu/lighttable.png)
-
-Open up your terminal and cd to the directory where your downloads go `cd ~/Downloads`.
-Check to see that your file is there. `ls`
-Extract the compressed file `tar -xzf LightTableLinux64.tar.gz`
-Check to see that there is now a directory called LightTable `ls`
-Move the LightTable directory to "/usr/local/bin" `sudo mv LightTable /usr/local/bin`
-From your home directory, set your path so you can launch LightTable from the command line  `echo "export PATH=/usr/local/bin/LightTable:$PATH" >> .bashrc`
-Launch LightTable `LightTable`
-
-If you want, you can create a launcher for LightTable. `sudo gnome-desktop-item-edit /usr/share/applications/ --create-new`
-You should see a window like this:
-
-![Create Icon](img/ubuntu/create_icon.png)
-
-Name the launcher LightTable. Type the path to the command `/usr/local/bin/LightTable/LightTable`. Click the icon. The LightTable icon can be found at `/usr/local/bin/LightTable/core/img/lticon.png`.
 
 
 ## Getting setup with Heroku
@@ -119,7 +111,7 @@ This will take you too a page with a terminal command. Copy this command and pas
 
 ## Testing your setup
 
-You have set up Java, Leiningen, Light Table, Git, and Heroku on your computer--all the tools you will need for this course. Before starting, we need to test them out.
+You have set up Java, Nightcode, Leiningen, Git, and Heroku on your computer--all the tools you will need for this course. Before starting, we need to test them out.
 
 Go to your terminal and run the following command:
 
@@ -149,13 +141,19 @@ This could take a long time, and will download many other pieces of code it reli
 
 This is starting a REPL, which we will learn about soon. It's a special terminal for Clojure. At the REPL prompt, type `(+ 1 1)` and press Return. Did you get the answer `2` back? You will learn more about that in the course. For now, press the Control button and D button on your keyboard together (abbreviated as Ctrl+D). This should take you out of the Clojure REPL and back to your normal terminal prompt.
 
+**FIXME**
+
 Now, start Light Table. Once it is started, press the Control button and Space Bar together (abbreviated Ctrl+Space). This is how you start giving Light Table a command. Start typing the word "instarepl" and you should see a menu of options, like below. Choose "Instarepl: open a clojure instarepl."
 
 ![Testing Light Table - starting instarepl](img/ubuntu/testing-step3.png)
 
+**FIXME**
+
 At the bottom of the screen, you will see a cube moving and some text about connecting and installing dependencies. Once that stops moving, type `(+ 1 1)` into the window. It should look like the following image:
 
 ![Testing Light Table - running in the instarepl](img/ubuntu/testing-step4.png)
+
+**FIXME**
 
 If that worked, great! Close Light Table. We only have one more thing to test, Heroku.
 

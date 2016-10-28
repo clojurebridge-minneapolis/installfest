@@ -1,0 +1,24 @@
+#!/bin/sh
+# nightcode launcher
+# NOTE: Nightcode *requires* JavaFX from the Oracle JDK
+# http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+
+JVM_OPTS=${JVM_OPTS:-"-server -Xms128m -Xmx512m"}
+export JVM_OPTS
+
+cwd="$(pwd -P)"
+program=$(basename $0)
+dir=$(dirname $0)
+cd "$dir"
+dir="$(pwd -P)"
+
+jar="$(ls -1t Nightcode*.jar | head -1)"
+if [ ! -e "$jar" ]; then
+    echo "${program}: Nightcode jar not found!"
+    exit 1
+fi
+jar="$dir/$jar"
+log="$dir/$program.log"
+cd "$cwd"
+
+java $JVM_OPTS -jar "$jar" $@ > "$log" 2>&1 &
