@@ -13,16 +13,18 @@ The prompt (where you will type your commands) may look different: it usually sh
 
 For the rest of this setup, I will tell you to run commands in your terminal. When I say that, I mean "type the command into the terminal and press the Return key."
 
-## Installing Git
+## Installing Git and Ruby
 
 The **git** version control system is packaged for your Linux distribution.
 On Debian Ubuntu systems you can install it with the following
-(as the superuser):
+*(as the superuser)*:
 
 ```
 root@mylaptop# apt-get update
-root@mylaptop# apt-get install git git-core git-man
+root@mylaptop# apt-get install git git-core git-man ruby
 ```
+
+*NOTE: We are installing Ruby because it's needed by the Heroku Command Line Interface*
 
 ## Installing Java
 
@@ -39,7 +41,7 @@ clojurista@mylaptop$ mkdir -p ~/src/oracle/
 clojurista@mylaptop$ cd ~/src/oracle/
 clojurista@mylaptop$ tar -zxf jdk-8u112-linux-x64.tar.gz
 clojurista@mylaptop$ export JAVA_HOME=$HOME/src/oracle/jdk1.8.0_112
-clojurista@mylaptop$ export PATH=$JAVA_HOME/bin:$HOME/bin:$PATH
+clojurista@mylaptop$ export PATH=$JAVA_HOME/bin:/usr/local/heroku/bin:$HOME/bin:$PATH
 clojurista@mylaptop$ which java
 /home/clojurista/src/oracle/jdk1.8.0_112/bin/java
 clojurista@mylaptop$ java -version
@@ -49,9 +51,9 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.112-b15, mixed mode)
 clojurista@mylaptop$
 ```
 
-*NOTE: your `~/bin` directory was also added to your PATH because we will put the **nightcode** and **lein** launcher scripts there*
-
 The details of Java's version may differ from what you see above; that is perfectly fine.
+
+*NOTE: your `~/bin` directory was also added to your PATH because we will put the **nightcode** and **lein** launcher scripts there and the `/usr/local/heroku/bin` directory was added to your PATH because we will put the **heroku** launcher script there*
 
 ## Installing Nightcode
 
@@ -70,8 +72,14 @@ clojurista@mylaptop$ curl -O https://raw.githubusercontent.com/clojurebridge-min
 clojurista@mylaptop$ chmod +x nightcode
 ```
 
-Now you should be able to launch it by typing `nightcode` in a terminal.
+Now you should be able to launch it by typing `nightcode` in a terminal:
 
+![Nightcode](img/ubuntu/nc1.png)
+
+This is starting a REPL... which we will learn about soon. It's a special
+terminal for Clojure. At the REPL prompt type `(+ 2 3)` and press Return.
+Did you get the answer `5` back?
+You will learn more about that in the workshop.
 
 ## Installing Leiningen
 
@@ -95,8 +103,7 @@ clojurista@mylaptop$
 
 After you run the above commands, run the `lein version` command. It should take a while to run, as it will download some resources it needs the first time. If it completes successfully, you are golden! If not, ask an instructor for help.
 
-
-## Getting setup with Heroku
+## Installing the Heroku Command Line Interface (CLI)
 
 Heroku is the tool we will use in order to put your application online where others can see it.
 
@@ -112,91 +119,186 @@ After clicking on the link, you will be taken to another form where you will nee
 
 ![Heroku step 3](img/heroku-step3.png)
 
-After all that, you should be at your Heroku dashboard. There will be a link on the dashboard to download the Heroku Toolbelt. Download it now.
+After all that, you should be at your Heroku dashboard. There will be a link on the dashboard to download the Heroku Command Line Interface. Download it now.
 
 ![Heroku dashboard](img/ubuntu/heroku_dashboard_ubuntu.png)
 
-If you do not see this link on your dashboard, you can download the toolbelt from [toolbelt.heroku.com](https://toolbelt.heroku.com/).
+If you do not see this link on your dashboard, you can download the Heroku Command Line Interface from [toolbelt.heroku.com](https://toolbelt.heroku.com/).
 
-This will take you too a page with a terminal command. Copy this command and paste it into your terminal. Once the Heroku Toolbelt is installed, run the command `heroku login`. You will be prompted for your email and password on Heroku. If you are prompted to create an SSH key, say yes. If you enter them and the command ends successfully, congratulations!
+From the "Heroku Command Line" web page you can copy/paste the
+command to script to install the Heroku Command Line Interface to
+`/usr/local/heroku` *(as the superuser)*:
+
+```
+root@mylaptop# wget -qO- https://toolbelt.heroku.com/install.sh | sh
+This script requires superuser access to install software.
+You will be prompted for your password by sudo.
+Add the Heroku CLI to your PATH using:
+$ echo 'PATH="/usr/local/heroku/bin:$PATH"' >> ~/.profile
+root@mylaptop#
+```
+
+*NOTE: We already added `/usr/local/heroku/bin` to the PATH above*
+
+You can test that the basic **heroku** command works like this:
+
+```
+
+clojurista@mylaptop$ heroku --version
+heroku-toolbelt/3.43.12 (x86_64-linux-gnu) ruby/2.3.1
+heroku-cli/5.4.8-eee5ec9 (linux-amd64) go1.7.1
+You have no installed plugins.
+clojurista@mylaptop$
+```
+
+Now you can login to heroku the first time:
+
+```
+clojurista@mylaptop$ heroku login
+Enter your Heroku credentials.
+Email: clojurista@gmail.com
+Password (typing will be hidden): ++++++++
+Logged in as clojurista@gmail.com
+clojurista@mylaptop$
+```
 
 ## Testing your setup
 
-You have set up Java, Nightcode, Leiningen, Git, and Heroku on your computer--all the tools you will need for this course. Before starting, we need to test them out.
+You have set up Java, Nightcode, Leiningen, Git, and Heroku on your computer -- all the tools you will need for this course. Before starting, we need to test them out.
 
-Go to your terminal and run the following command:
-
-```
-git clone https://github.com/heroku/clojure-sample.git
-```
-
-This will check out a sample Clojure application from GitHub, a central repository for lots of source code. Your terminal should look similar to this picture:
-
-![Testing git clone](img/ubuntu/testing-step1.png)
-
-Then run the command:
+Go to your terminal and download a copy of the [clojure-getting-started](https://github.com/heroku/clojure-getting-started) repository:
 
 ```
-cd clojure-sample
+clojurista@mylaptop$ mkdir -p ~/src/github/heroku
+clojurista@mylaptop$ git clone https://github.com/heroku/clojure-getting-started.git
+clojurista@mylaptop$ cd clojure-getting-started
+clojurista@mylaptop$
 ```
 
-This will put you in the directory with the source code for this sample bit of Clojure code. After that completes, run:
+Now in Nightcode click the **Import** button and select the **clojure-getting-started** directory:
+
+![Nightcode](img/ubuntu/nc2.png)
+
+Open the `web.clj` file by opening up the `src` and `clojure-getting-started` directories. Then change the line ` :body "Hello from Heroku"})` with
+` :body "Hello Clojurista from Heroku!"})` (i.e. you can put in your
+name or anything you want)!
+
+![Nightcode](img/ubuntu/nc3.png)
+
+Now click the **Save** button. We'll save this change in **git** by
+making the following commit:
 
 ```
-lein repl
+clojurista@mylaptop$ git commit -a -m 'modified greeting'
+git commit -a -m 'modified greeting'
+[master 2824daa] modified greeting
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+clojurista@mylaptop$
 ```
 
-This could take a long time, and will download many other pieces of code it relies on. You should see lines that start with `Retrieving ...` on your screen. When it finishes, your terminal should look like the following:
+Now you can start the sample application on your laptop using **lein repl**.
+The first two Clojure commands start the application. You can then
+visit the application webpage on your laptop at
+[http://localhost:5000](http://localhost:5000).
+Then you can shut down the application and exit with the last
+two commmands.
 
-![Testing lein repl](img/ubuntu/testing-step2.png)
+0. `lein repl`
+1. `(require 'clojure-getting-started.web)`
+2. `(def server (clojure-getting-started.web/-main))`
+3. Now you can open the web page at [http://localhost:5000](http://localhost:5000)
+![Nightcode](img/ubuntu/nc4.png)
+4. `(.stop server)`
+5. `(exit)`
 
-This is starting a REPL, which we will learn about soon. It's a special terminal for Clojure. At the REPL prompt, type `(+ 1 1)` and press Return. Did you get the answer `2` back? You will learn more about that in the course. For now, press the Control button and D button on your keyboard together (abbreviated as Ctrl+D). This should take you out of the Clojure REPL and back to your normal terminal prompt.
-
-**FIXME**
-
-Now, start Light Table. Once it is started, press the Control button and Space Bar together (abbreviated Ctrl+Space). This is how you start giving Light Table a command. Start typing the word "instarepl" and you should see a menu of options, like below. Choose "Instarepl: open a clojure instarepl."
-
-![Testing Light Table - starting instarepl](img/ubuntu/testing-step3.png)
-
-**FIXME**
-
-At the bottom of the screen, you will see a cube moving and some text about connecting and installing dependencies. Once that stops moving, type `(+ 1 1)` into the window. It should look like the following image:
-
-![Testing Light Table - running in the instarepl](img/ubuntu/testing-step4.png)
-
-**FIXME**
-
-If that worked, great! Close Light Table. We only have one more thing to test, Heroku.
-
-Go back to your terminal. You should still be in the `clojure-sample` directory.
-
-Run this command:
-
-`heroku create`
-
-There should be output about something being created. A URL will be displayed. Look at the following example:
-
-![Testing heroku create](img/ubuntu/testing-step5.png)
-
-Next, run the following commands:
 
 ```
-git push heroku master
-heroku open
+clojurista@mylaptop$ lein repl
+Retrieving environ/environ.lein/0.3.1/environ.lein-0.3.1.pom from clojars
+Retrieving environ/environ.lein/0.3.1/environ.lein-0.3.1.jar from clojars
+Warning: cider-nrepl requires Clojure 1.7 or greater.
+Warning: cider-nrepl will not be included in your project.
+Warning: cider-nrepl requires Clojure 1.7 or greater.
+Warning: cider-nrepl will not be included in your project.
+Retrieving environ/environ/1.0.0/environ-1.0.0.pom from clojars
+Retrieving environ/environ/1.0.0/environ-1.0.0.jar from clojars
+nREPL server started on port 42509 on host 127.0.0.1 - nrepl://127.0.0.1:42509
+REPL-y 0.3.7, nREPL 0.2.12
+Clojure 1.6.0
+OpenJDK 64-Bit Server VM 1.8.0_111-8u111-b14-2-b14
+    Docs: (doc function-name-here)
+          (find-doc "part-of-name-here")
+  Source: (source function-name-here)
+ Javadoc: (javadoc java-object-or-class-here)
+    Exit: Control+D or (exit) or (quit)
+ Results: Stored in vars *1, *2, *3, an exception in *e
+
+user=> (require 'clojure-getting-started.web)
+2016-10-28 14:05:21.439:INFO::nREPL-worker-0: Logging initialized @17071ms
+nil
+user=> (def server (clojure-getting-started.web/-main))
+(def server (clojure-getting-started.web/-main))
+2016-10-28 14:05:30.163:INFO:oejs.Server:nREPL-worker-0: jetty-9.2.10.v20150310
+2016-10-28 14:05:30.203:INFO:oejs.ServerConnector:nREPL-worker-0: Started ServerConnector@379cb9a6{HTTP/1.1}{0.0.0.0:5000}
+2016-10-28 14:05:30.204:INFO:oejs.Server:nREPL-worker-0: Started @25837ms
+#'user/server
+user=> (println "open http://localhost:5000")
+open http://localhost:5000
+user=> (.stop server)
+2016-10-28 14:06:15.811:INFO:oejs.ServerConnector:nREPL-worker-1: Stopped ServerConnector@379cb9a6{HTTP/1.1}{0.0.0.0:5000}
+nil
+user=> (exit)
+Bye for now!
+clojurista@mylaptop$
 ```
 
-Enter "yes" if you are asked if you are sure you want to connect, like in the following image:
+Yay! Your first web application works on your laptop!
 
-![Connecting via SSH](img/ubuntu/testing-step6.png)
+
+Now you can push the application to the web via **heroku create**:
+
+```
+
+clojurista@mylaptop$ heroku create
+Creating app... done, enigmatic-beyond-54459
+https://enigmatic-beyond-54459.herokuapp.com/ | https://git.heroku.com/enigmatic-beyond-54459.git
+clojurista@mylaptop$ git push heroku master
+Counting objects: 41, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (38/38), done.
+Writing objects: 100% (41/41), 6.36 KiB | 0 bytes/s, done.
+Total 41 (delta 15), reused 0 (delta 0)
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----> Clojure (Leiningen 2) app detected
+remote: -----> Installing OpenJDK 1.8... done
+remote: -----> Installing Leiningen
+remote:        Downloading: leiningen-2.6.1-standalone.jar
+remote:        Writing: lein script
+remote: -----> Building with Leiningen
+remote:        Running: lein uberjar
+remote:        Retrieving environ/environ.lein/0.3.1/environ.lein-0.3.1.pom from clojars
+...more output...
+remote: -----> Launching...
+remote:        Released v3
+remote:        https://enigmatic-beyond-54459.herokuapp.com/ deployed to Heroku
+remote:
+remote: Verifying deploy... done.
+To https://git.heroku.com/enigmatic-beyond-54459.git
+ * [new branch]      master -> master
+clojurista@mylaptop$ heroku open
+clojurista@mylaptop$
+```
 
 Your browser should open (and take a long time to load), and you should see a website like the following:
 
-![Testing heroku working](img/ubuntu/testing-step7.png)
+![Nightcode](img/ubuntu/nc5.png)
 
 If your browser does not open after running `heroku open`, start a browser and go to the URL displayed after you ran `heroku create`.
 
-Congratulations! That website is running code you have on your computer that you have uploaded. You have actually made a very simple Clojure app, and your computer is all set up to make more.
+Congratulations! That website is running the code you have
+uploaded to the Interet!!!
+You have made a very simple Clojure app and you are all set up to make more!
 
-## Try the koans
-
-If you're a track 2 student, try to tackle running the [koans](koans.md).
+You're ready for the workshop!!!
