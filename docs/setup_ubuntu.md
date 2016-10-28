@@ -13,7 +13,18 @@ The prompt (where you will type your commands) may look different: it usually sh
 
 For the rest of this setup, I will tell you to run commands in your terminal. When I say that, I mean "type the command into the terminal and press the Return key."
 
-## Install Java
+## Installing Git
+
+The **git** version control system is packaged for your Linux distribution.
+On Debian Ubuntu systems you can install it with the following
+(as the superuser):
+
+```
+root@mylaptop# apt-get update
+root@mylaptop# apt-get install git git-core git-man
+```
+
+## Installing Java
 
 Typically you can use the Java that's packaged or your Linux
 distribution (e.g. for Debian and Ubuntu it's the package
@@ -24,21 +35,21 @@ and install it from the [Oracle Java SE Downloads](http://www.oracle.com/technet
 You can install the Oracle JDK one of your subdirectories like this:
 
 ```
-clojurista@mylaptop $ mkdir -p ~/src/oracle/
-clojurista@mylaptop $ cd ~/src/oracle/
-clojurista@mylaptop $ tar -zxf jdk-8u112-linux-x64.tar.gz
-clojurista@mylaptop $ export JAVA_HOME=$HOME/src/oracle/jdk1.8.0_112
-clojurista@mylaptop $ export PATH=$JAVA_HOME/bin:$HOME/bin:$PATH
-clojurista@mylaptop $ which java
+clojurista@mylaptop$ mkdir -p ~/src/oracle/
+clojurista@mylaptop$ cd ~/src/oracle/
+clojurista@mylaptop$ tar -zxf jdk-8u112-linux-x64.tar.gz
+clojurista@mylaptop$ export JAVA_HOME=$HOME/src/oracle/jdk1.8.0_112
+clojurista@mylaptop$ export PATH=$JAVA_HOME/bin:$HOME/bin:$PATH
+clojurista@mylaptop$ which java
 /home/clojurista/src/oracle/jdk1.8.0_112/bin/java
-clojurista@mylaptop $ java -version
+clojurista@mylaptop$ java -version
 java version "1.8.0_112"
 Java(TM) SE Runtime Environment (build 1.8.0_112-b15)
 Java HotSpot(TM) 64-Bit Server VM (build 25.112-b15, mixed mode)
-clojurista@mylaptop $
+clojurista@mylaptop$
 ```
 
-*NOTE: your `~/bin` directory was also added to your PATH because you may want to put the Nightcode launcher script there*
+*NOTE: your `~/bin` directory was also added to your PATH because we will put the **nightcode** and **lein** launcher scripts there*
 
 The details of Java's version may differ from what you see above; that is perfectly fine.
 
@@ -53,10 +64,10 @@ use our handy launcher script. NOTE: for this method we also install the
 Clojure jar here to get started:
 
 ```
-clojurista@mylaptop $ cd ~/bin
-clojurista@mylaptop $ mv ~/Downloads/Nightcode*.jar ./
-clojurista@mylaptop $ curl -O https://raw.githubusercontent.com/clojurebridge-minneapolis/installfest/master/docs/linux/nightcode
-clojurista@mylaptop $ chmod +x nightcode
+clojurista@mylaptop$ cd ~/bin
+clojurista@mylaptop$ mv ~/Downloads/Nightcode*.jar ./
+clojurista@mylaptop$ curl -O https://raw.githubusercontent.com/clojurebridge-minneapolis/installfest/master/docs/linux/nightcode
+clojurista@mylaptop$ chmod +x nightcode
 ```
 
 Now you should be able to launch it by typing `nightcode` in a terminal.
@@ -71,15 +82,15 @@ Go to the [Leiningen website](http://leiningen.org/). You will see a link to the
 ![Leiningen site](img/leiningen_site.png)
 ![Leiningen site](img/lein_install.png)
 
-After that, run the following commands in your terminal. You will be prompted to enter your password.
+After that, run the following commands in your terminal:
 
 ```
-sudo mkdir -p /usr/local/bin/
-sudo mv ~/Downloads/lein* /usr/local/bin/lein
-sudo chmod a+x /usr/local/bin/lein
-cd $HOME
-echo 'PATH=$PATH:/usr/local/bin' >> .bashrc
-exec bash
+clojurista@mylaptop$ cd ~/bin
+clojurista@mylaptop$ mv ~/Downloads/lein ./
+clojurista@mylaptop$ chmod +x lein
+clojurista@mylaptop$ lein version
+Leiningen 2.7.1 on Java 1.8.0_112 Java HotSpot(TM) 64-Bit Server VM
+clojurista@mylaptop$
 ```
 
 After you run the above commands, run the `lein version` command. It should take a while to run, as it will download some resources it needs the first time. If it completes successfully, you are golden! If not, ask an instructor for help.
