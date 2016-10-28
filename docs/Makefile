@@ -10,10 +10,11 @@ BUILDDIR      = _build
 # Internal variables.
 PAPEROPT_a4     = -D latex_paper_size=a4
 PAPEROPT_letter = -D latex_paper_size=letter
-ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees \
-		  --ignore "*.swp" \
-		  --ignore "Makefile" \
-		  $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
+AUTOIGNORE      = --ignore "*.swp" --ignore "Makefile"
+JUSTSPHINXOPTS   = -d $(BUILDDIR)/doctrees \
+                    $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
+ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $AUTOIGNORE \
+                  $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 # the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
@@ -60,7 +61,7 @@ html:
 
 .PHONY: justhtml
 justhtml:
-	sphinx-build -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
+	sphinx-build -b html $(JUSTSPHINXOPTS) $(BUILDDIR)/html
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
 
