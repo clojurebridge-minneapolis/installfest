@@ -15,23 +15,30 @@ For the rest of this setup, I will tell you to run commands in your terminal. Wh
 
 ## Install Java
 
-Instructions vary by Linux distribution... For Debian and Ubuntu you
-can update the package manager and install OpenJDK 8 like this:
+Typically you can use the Java that's packaged or your Linux
+distribution (e.g. for Debian and Ubuntu it's the package
+**openjdk-8-jdk**). However because we're using Nightcode and
+Nightcode *requires* the Oracle JDK you will need to download
+and install it from the [Oracle Java SE Downloads](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) page.
+
+You can install the Oracle JDK one of your subdirectories like this:
 
 ```
-# apt-get update
-# apt-get install openjdk-8-jdk
-```
-
-When Java is installed, you will see something like this in your terminal:
-
-```
+clojurista@mylaptop $ mkdir -p ~/src/oracle/
+clojurista@mylaptop $ cd ~/src/oracle/
+clojurista@mylaptop $ tar -zxf jdk-8u112-linux-x64.tar.gz
+clojurista@mylaptop $ export JAVA_HOME=$HOME/src/oracle/jdk1.8.0_112
+clojurista@mylaptop $ export PATH=$JAVA_HOME/bin:$HOME/bin:$PATH
+clojurista@mylaptop $ which java
+/home/clojurista/src/oracle/jdk1.8.0_112/bin/java
 clojurista@mylaptop $ java -version
-openjdk version "1.8.0_111"
-OpenJDK Runtime Environment (build 1.8.0_111-8u111-b14-2-b14)
-OpenJDK 64-Bit Server VM (build 25.111-b14, mixed mode)
+java version "1.8.0_112"
+Java(TM) SE Runtime Environment (build 1.8.0_112-b15)
+Java HotSpot(TM) 64-Bit Server VM (build 25.112-b15, mixed mode)
 clojurista@mylaptop $
 ```
+
+*NOTE: your `~/bin` directory was also added to your PATH because you may want to put the Nightcode launcher script there*
 
 The details of Java's version may differ from what you see above; that is perfectly fine.
 
@@ -48,9 +55,7 @@ Clojure jar here to get started:
 ```
 clojurista@mylaptop $ cd ~/bin
 clojurista@mylaptop $ mv ~/Downloads/Nightcode*.jar ./
-clojurista@mylaptop $ curl -O http://repo1.maven.org/maven2/org/clojure/clojure/1.8.0/clojure-1.8.0.zip
-clojurista@mylaptop $ unzip clojure-1.8.0.zip
-clojurista@mylaptop $ curl -O https://raw.githubusercontent.com/clojurebridge-minneapolis/installfest/master/bin/nightcode
+clojurista@mylaptop $ curl -O https://raw.githubusercontent.com/clojurebridge-minneapolis/installfest/master/docs/linux/nightcode
 clojurista@mylaptop $ chmod +x nightcode
 ```
 
