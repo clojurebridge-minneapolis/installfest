@@ -1,5 +1,7 @@
 # Install Leiningen
 
+*NOTE: This page is now obsolete (for reference only!)*
+
 ## Download Leiningen for Windows
 
 For Windows there is a special installer:

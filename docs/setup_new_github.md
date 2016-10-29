@@ -1,5 +1,8 @@
 # Setup github
 
+*NOTE: This page is now obsolete (for reference only!)*
+
+
 ## Create a github account
 
 Github has become the _de facto_ location to publish
