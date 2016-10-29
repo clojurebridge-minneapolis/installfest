@@ -1,5 +1,7 @@
 # Install the Heroku Toolbelt
 
+*NOTE: This page is now obsolete (for reference only!)*
+
 ## Sign up for a free Heroku account
 
 Heroku is used to host web applications on the Internet.

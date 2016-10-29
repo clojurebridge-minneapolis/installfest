@@ -1,5 +1,7 @@
 # Try Clojure Koans in Nightcode
 
+*NOTE: This page is now obsolete (for reference only!)*
+
 ## Clone our version of the Clojure Koans
 
 ````

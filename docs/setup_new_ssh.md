@@ -1,5 +1,7 @@
 # Create an SSH key
 
+*NOTE: This page is now obsolete (for reference only!)*
+
 ## Open a command terminal
 
 Yes you will learn how to talk to the computer _directly on the command line_!

@@ -1,5 +1,7 @@
 # Getting Started with Heroku
 
+*NOTE: This page is now obsolete (for reference only!)*
+
 ## Verify the heroku toolbelt installation
 
 In a previous step we installed the Heroku toolbelt.

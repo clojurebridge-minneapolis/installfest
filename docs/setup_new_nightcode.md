@@ -1,5 +1,7 @@
 # Install Nightcode
 
+*NOTE: This page is now obsolete (for reference only!)*
+
 ## Download Nightcode
 
 Nightcode is an integrated development environment (IDE) for

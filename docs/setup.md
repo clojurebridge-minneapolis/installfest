@@ -49,16 +49,3 @@ Choose your operating system to get setup instructions:
 * [Windows 7](setup_win7.md)
 * [Windows 8](setup_win8.md)
 * [Linux](setup_ubuntu.md)
-
-## Experimental Instructions (to be merged)
-
-*NOTE: This instructions will be merged into the section above*
-
-* [Install the Heroku Toolbelt](setup_new_heroku.md)
-* [Create an SSH key](setup_new_ssh.md)
-* [Setup github](setup_new_github.md)
-* [Install Leiningen](setup_new_lein.md)
-* [Getting Started with Heroku](setup_new_heroku2.md)
-* [Install Nightcode](setup_new_nightcode.md)
-* [Older koans doc](koans.md)
-* [Try Clojure Koans in Nightcode](setup_new_koans.md)
