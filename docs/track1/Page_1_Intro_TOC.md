@@ -14,7 +14,7 @@ Create a web app using Clojure code.
 
 We will introduce you to Clojure by creating and deploying a web app where you and your friends can post messages to each other.
 
-![](https://github.com/annieengmark/track1-chatter/blob/master/images/finished%20app.png "finished app")
+![](https://github.com/clojurebridge-minneapolis/track1-chatter/raw/master/images/finished%20app.png "finished app")
 
 ### Additional Benefits & Learning Opportunities
 
@@ -88,7 +88,7 @@ If your commands and results look like the example above, you are ready to move 
 ## Moving Forward
 Once you confirm your server is working properly, move to the next page where were will briefly go over what Clojure is, what the Web is and how we interact with it, and how HTML works.
 
-Next page, [Chapter 2: Big Picture](Page%202_Big%20Picture.md)
+Next page, [Chapter 2: Big Picture](Page_2_Big_Picture.md)
 
 
 ### Copyright and License

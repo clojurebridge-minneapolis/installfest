@@ -103,7 +103,7 @@ This means when the server gets any kind of request other than GET, it should re
 
 In your browser, right-click on the page and select `Inspect Element With Firebug.`
 
-![](https://github.com/annieengmark/track1-chatter/blob/master/images/Inspecting%20the%20element%20showing%20the%20source.png "Inspecting the element showing the source")
+![](https://github.com/clojurebridge-minneapolis/track1-chatter/raw/master/images/Viewing%20the%20source.png "Inspecting the element showing the source")
 
 The `HTML` tab shows what the HTML document looks like. The default is an empty head and a body with the string "Hello World". This is different from what we saw when we used `View Page Source`. The
 browser requested html but only got a string back, and it fleshes out a legal page from this information.
