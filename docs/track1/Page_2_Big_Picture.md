@@ -96,7 +96,7 @@ Open a text editing program and enter the following text:
 
 Save the file as 'sample.html'. Then open the file in the web browser. On Windows or a Mac, double-click the file to open it in the default browser, or right-click and select `Open With`. In your browser you should see something like this,
 
-![](https://github.com/annieengmark/track1-chatter/blob/master/images/sample%20html.png "sample html")
+![](https://github.com/clojurebridge-minneapolis/track1-chatter/raw/master/images/sample%20html.png "sample html")
 
 
 Notice the address bar. Instead of making an HTTP request to a server over the Internet, the browser  opened a local file and displayed the HTML. Remember, the web browser renders the HTML to make it appear as you see it in the browser. Right-click the page and select `View Page Source` to see the HTML elements of the file you saved.
@@ -150,7 +150,7 @@ HTML supports tables as well. Add a table to your sample HTML by adding the foll
 </table>
 ```
 
-![](https://github.com/annieengmark/track1-chatter/blob/master/images/HTML%20table.png "HTML table")
+![](https://github.com/clojurebridge-minneapolis/track1-chatter/raw/master/images/HTML%20table.png "HTML table")
 
 `table` encloses the entire table.
 

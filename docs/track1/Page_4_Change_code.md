@@ -213,6 +213,6 @@ Refresh GitHub in your browser and you will see the text and the commit count ch
 
 That's all the command line git we will need for this tutorial. GitHub maintains a list of resources where you can learn more about git and GitHub.
 
-In [Chapter 5](Page%205_More%20code%20changes.md), we'll make more to the code.
+In [Chapter 5](Page_5_More_code_changes.md), we'll make more to the code.
 
 [Good Resources for Learning Git and GitHub](https://help.github.com/articles/good-resources-for-learning-git-and-github).
