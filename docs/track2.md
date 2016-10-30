@@ -25,7 +25,7 @@ In Clojure this might look like the following:
 There are a couple differences here, first thing to note is that we are using a different
 case style. In Clojure we don't use camel case but instead kebab case which is dash separated.
 
-To prove we didn't just make this up: [link](http://c2.com/cgi/wiki?KebabCase)
+[We promise we didn't make this up!](http://c2.com/cgi/wiki?KebabCase)
 
 Another thing is that we've placed the function inside the parenthesis. In Clojure a function
 call is always an open paren followed by the function we want to call, followed by any arguments
@@ -56,9 +56,11 @@ Feel free to go through these at your own pace, or you can follow along this doc
 
 To get the koans all setup and running visit the official [koans page](http://clojurekoans.com/).
 
-### Common functions
+For the koans we recommend using [Atom](https://atom.io/), or your preferred editor should work great.
 
-#### Math
+## Clojure Basics
+
+### Math
 
 Unlike common languages, such as JavaScript, in which `+` is an operation that is used in arithmetic expressions, and square root `sqrt` is a function, in Clojure every action is a function, there is no notion of operators. Additionally all of the
 math operators take a variable number of arguments.
@@ -78,7 +80,7 @@ user=> (/ 6 2)
 3
 ```
 
-#### Equality
+### Equality
 
 We can use the `=` function to test whether its arguments are all equal to each other.
 Like the math functions the `=` function also takes multiple arguments.
@@ -92,9 +94,12 @@ user=> (= 1 2)
 false
 ```
 
-## `nil`
+### nil
 
-`nil` is a special value in Clojure, it means "nothing". It is commonly used when a desired value is not found. We will see examples of its use later. For now, just note that it is not equal to other values:
+`nil` is a special value in Clojure, it means "nothing".
+You might know it as `null` in other programming languages.
+It is commonly used when a desired value is not found.
+We will see examples of its use later. For now, just note that it is not equal to other values:
 
 ```clojure
 user=> (= nil false)
