@@ -56,9 +56,9 @@ Feel free to go through these at your own pace, or you can follow along this doc
 
 To get the koans all setup and running visit the official [koans page](http://clojurekoans.com/).
 
-### Common functions
+## Clojure Basics
 
-#### Math
+### Math
 
 Unlike common languages, such as JavaScript, in which `+` is an operation that is used in arithmetic expressions, and square root `sqrt` is a function, in Clojure every action is a function, there is no notion of operators. Additionally all of the
 math operators take a variable number of arguments.
@@ -78,7 +78,7 @@ user=> (/ 6 2)
 3
 ```
 
-#### Equality
+### Equality
 
 We can use the `=` function to test whether its arguments are all equal to each other.
 Like the math functions the `=` function also takes multiple arguments.
@@ -92,7 +92,7 @@ user=> (= 1 2)
 false
 ```
 
-## `nil`
+### nil
 
 `nil` is a special value in Clojure, it means "nothing". It is commonly used when a desired value is not found. We will see examples of its use later. For now, just note that it is not equal to other values:
 
