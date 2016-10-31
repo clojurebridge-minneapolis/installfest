@@ -48,4 +48,5 @@ Choose your operating system to get setup instructions:
 * [OS X](setup_osx.md)
 * [Windows 7](setup_win7.md)
 * [Windows 8](setup_win8.md)
+* [Windows 10](setup_win10.md)
 * [Linux](setup_ubuntu.md)
