@@ -37,15 +37,19 @@ And you will have:
 * Copied the example chat application with ````git clone````
 * Pushed your copy of the chat application to Heroku so it's *live on the Internet*
 
-## Instructions for all: Slack
+## Instructions for all
+
+These instructions apply to all platforms: Mac, Windows and Linux:
 
 * [Slack](slack.md)
+* [Atom](atom.md)
+* [Github](github.md)
 
 ## Instructions by operating system
 
 Choose your operating system to get setup instructions:
 
-* [OS X](setup_osx.md)
+* [Mac OS X](setup_osx.md)
 * [Windows 7](setup_win7.md)
 * [Windows 8](setup_win8.md)
 * [Windows 10](setup_win10.md)
