@@ -4,7 +4,7 @@ OS X Setup
 * [Start a terminal](#starting-a-terminal)
 * [Make sure Java is installed](#making-sure-java-is-installed)
 * [Get Leiningen installed](#installing-leiningen)
-* [Get Light Table installed](#installing-light-table)
+* [Get Atom installed](#installing-atom)
 * [Get Heroku installed (includes Git)](#getting-setup-with-heroku)
 * [Test installation](#testing-your-setup)
 
@@ -48,13 +48,11 @@ source .bashrc
 
 After you run the above commands, run the `lein version` command. It should take a while to run, as it will download some resources it needs the first time. If it completes successfully, you are golden! If not, ask an instructor for help.
 
-## Installing Light Table
+## Installing Atom
 
-Go to the [Light Table site](http://www.lighttable.com/). On the page there, you should see a set of buttons that have download links for Light Table. Click the "OS X 10.7+" button and you will download a .zip file.
+Go to the [Atom site](http://atom.io) and click the download link. 
 
-![Light Table downloads](img/os_x/light-table-download.png)
-
-There should now be a file named LightTableMac.zip in your Downloads folder. Double-click the file to unzip it, then move LightTable.app to your Applications folder.
+There should now be a file named atom-mac.zip in your Downloads folder. Double-click the file to unzip it, then move Atom.app to your Applications folder.
 
 ## Getting setup with Heroku
 
@@ -92,7 +90,7 @@ Finally, complete your SSH setup with Heroku by running the command `heroku keys
 
 ## Testing your setup
 
-You have set up Java, Leiningen, Light Table, Git, and Heroku on your computer--all the tools you will need for this course. Before starting, we need to test them out.
+You have set up Java, Leiningen, Atom, Git, and Heroku on your computer--all the tools you will need for this course. Before starting, we need to test them out.
 
 Go to your terminal and run the following command:
 
@@ -122,17 +120,7 @@ This could take a long time, and will download many other pieces of code it reli
 
 This is starting a REPL, which we will learn about soon. It's a special terminal for Clojure. At the REPL prompt, type `(+ 1 1)` and press Return. Did you get the answer `2` back? You will learn more about that in the course. For now, press the Control button and D button on your keyboard together (abbreviated as Ctrl+D). This should take you out of the Clojure REPL and back to your normal terminal prompt.
 
-Now, start Light Table. Once it is started, press the Control button and Space Bar together (abbreviated Ctrl+Space). This is how you start giving Light Table a command. Start typing the word "instarepl" and you should see a menu of options, like below. Choose "Instarepl: open a clojure instarepl."
-
-![Testing Light Table - starting instarepl](img/os_x/testing-step3.png)
-
-At the bottom of the screen, you will see a cube moving and some text about connecting and installing dependencies. Once that stops moving, type `(+ 1 1)` into the window. It should look like the following image:
-
-![Testing Light Table - running in the instarepl](img/os_x/testing-step4.png)
-
-If that worked, great! Close Light Table. We only have one more thing to test, Heroku.
-
-Go back to your terminal. You should still be in the `clojure-sample` directory.
+You should still be in the `clojure-sample` directory.
 
 Run this command:
 

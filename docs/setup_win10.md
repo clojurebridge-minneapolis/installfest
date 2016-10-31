@@ -4,7 +4,7 @@ Windows 10 Setup
 * Start a command prompt
 * Get Java installed
 * Get Leiningen installed
-* Get Light Table installed
+* Get Atom installed
 * Get Heroku installed (includes Git)
 * Test installation
 
@@ -49,30 +49,12 @@ Leiningen is a tool used on the command line to manage Clojure projects.
 
 Next, go back to [the Leiningen Windows installer site](http://leiningen-win-installer.djpowell.net/) and download the file linked as "leiningen-win-installer." Run this executable and follow the "Detailed installation" section at the Leiningen Windows Installer site. At the end of the installation, leave "Run a Clojure REPL" checked before you click "Finish." If a terminal window opens that looks like the one on the Leiningen Windows installer site, then you are good to go.
 
-## Installing Nightcode
+## Installing Atom
 
-On the [Nightcode home page](https://sekao.net/nightcode/) you can download a windows installer.  Run the installer.  When the installer finishes, it will launch Nightcode and you should see 
+Go to the [Atom site](http://atom.io) and click the download link. 
 
-![Nightcode](img/win10/nightcode.png)
-
-This is starting a REPL... which we will learn about soon.  Its a special terminal for Clojure.  At the REPL prompt, type (+ 2 3) and press Return.  Did you get the answer 5 back?  You will learn more about that in the workshop.
-
-It is also possible that Nightcode will have started with an error message
-
-![Nightcode error](img/win10/nightcode-java-error.png)
-
-If you are seeing this message your computer has more than one version of java installed on it.  The solution to this problem can be found in this [Stackoverflow question](http://stackoverflow.com/questions/29697543/registry-key-error-java-version-has-value-1-8-but-1-7-is-required).  To do this, you will need to launch a command prompt with elevated permissions.  Right click on the Command Prompt menu item and choose 'Run as administrator'
-
-![Run as Administrator](img/win10/run-as-administrator.png)
-
-If the command prompt does not open with a prompt saying 'C:\WINDOWS\system32, type cd \WINDOWS\system32 and press enter.
-Delete the three files mentioned in the StackOverflow question by typing the following 3 commands and press Enter after each command.
-`del java.exe`
-`del javaw.exe`
-`del javaws.exe`
-
-Close and restart Nighcode and it should look like the first screenshot.
-
+There should now be a file named AtomSetup.exe in your Downloads folder. Double-click the file to
+run the Atom installer.
 
 ## Get setup with Heroku
 
@@ -134,7 +116,7 @@ After that, close the command prompt, open it back up, and run the command `hero
 
 ## Testing your setup
 
-You have set up Java, Leiningen, Nightcode, Git, and Heroku on your computer, all the tools you will need for this program. Before starting, we need to test them out. Make sure you have a command prompt (Windows) open for testing. We will just call this a terminal from now on.
+You have set up Java, Leiningen, Atom, Git, and Heroku on your computer, all the tools you will need for this program. Before starting, we need to test them out. Make sure you have a command prompt (Windows) open for testing. We will just call this a terminal from now on.
 
 Go to your terminal and run the following command:
 
@@ -158,21 +140,7 @@ This could take a long time, and will download many other pieces of code it reli
 
 This is starting a REPL, which we will learn about soon. It's a special terminal for Clojure. At the REPL prompt, type `(+  1  1)` and hit enter. Did you get the answer `2` back? You will learn more about that in the course. For now, press the Control button and D button on your keyboard together (abbreviated as Ctrl+D). This should take you out of the Clojure REPL and back to your normal terminal prompt.
 
-Now, start Nightcode. Once it is started, click the Import button and select the clojure-sample directory.
-
-![Testing Nightcode - import clojure-sample](img/win10/nightcode-clojure-sample.png)
-
-Open the `app.clj` file by opening up the `src` and `sample` directories.  Then change the line ` :body "Hello from Heroku"})` with
-` :body "Hello Clojurista from Heroku!"})` (i.e. you can put in your
-name or anything you want)!
-
-![Nightcode](img/win10/nightcode3.png)
-
-
-
-
-
-If that worked, great! Close Light Table. We only have one more thing to test, Heroku.
+We only have one more thing to test, Heroku.
 
 Go back to your terminal. You should still be in the `clojure-sample` directory.
 
@@ -199,11 +167,6 @@ Your browser should open (and take a long time to load) and you should see a web
 ![Testing heroku working](img/win7/testing-step6.png)
 
 Congratulations! That website is running code you have on your computer that you have uploaded. You have actually made a very simple Clojure app, and your computer is all set up to make more.
-
-
-
-### Troubleshooting
-* If you receive errors while running Light Table about Java or JDK, these may be resolved by finishing the installation of Leiningen first. If not, see a TA to look at your environment variables.
 
 ### Try the koans
 
