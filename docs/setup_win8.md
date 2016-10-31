@@ -4,7 +4,6 @@ Windows 8 Setup
 * Start a command prompt
 * Get Java installed
 * Get Leiningen installed
-* Get Atom installed
 * Get Heroku installed (includes Git)
 * Test installation
 
@@ -47,13 +46,6 @@ Once you have downloaded the right Java version, run the executable you download
 Leiningen is a tool used on the command line to manage Clojure projects.
 
 Next, go back to [the Leiningen Windows installer site](http://leiningen-win-installer.djpowell.net/) and download the file linked as "leiningen-win-installer." Run this executable and follow the "Detailed installation" section at the Leiningen Windows Installer site. At the end of the installation, leave "Run a Clojure REPL" checked before you click "Finish." If a terminal window opens that looks like the one on the Leiningen Windows installer site, then you are good to go.
-
-## Installing Atom
-
-Go to the [Atom site](http://atom.io) and click the download link. 
-
-There should now be a file named AtomSetup.exe in your Downloads folder. Double-click the file to
-run the Atom installer.
 
 ## Get setup with Heroku
 

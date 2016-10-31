@@ -28,59 +28,11 @@ root@mylaptop# apt-get install git git-core git-man ruby
 
 ## Installing Java
 
-Typically you can use the Java that's packaged or your Linux
-distribution (e.g. for Debian and Ubuntu it's the package
-**openjdk-8-jdk**). However because we're using Nightcode and
-Nightcode *requires* the Oracle JDK you will need to download
-and install it from the [Oracle Java SE Downloads](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) page.
-
-You can install the Oracle JDK one of your subdirectories like this:
+On Ubuntu you should be able to install Java with:
 
 ```
-clojurista@mylaptop$ mkdir -p ~/src/oracle/
-clojurista@mylaptop$ cd ~/src/oracle/
-clojurista@mylaptop$ tar -zxf jdk-8u112-linux-x64.tar.gz
-clojurista@mylaptop$ export JAVA_HOME=$HOME/src/oracle/jdk1.8.0_112
-clojurista@mylaptop$ export PATH=$JAVA_HOME/bin:/usr/local/heroku/bin:$HOME/bin:$PATH
-clojurista@mylaptop$ which java
-/home/clojurista/src/oracle/jdk1.8.0_112/bin/java
-clojurista@mylaptop$ java -version
-java version "1.8.0_112"
-Java(TM) SE Runtime Environment (build 1.8.0_112-b15)
-Java HotSpot(TM) 64-Bit Server VM (build 25.112-b15, mixed mode)
-clojurista@mylaptop$
+sudo apt install default-jdk
 ```
-
-The details of Java's version may differ from what you see above; that is perfectly fine.
-
-*NOTE: your `~/bin` directory was also added to your PATH because we will put the **nightcode** and **lein** launcher scripts there and the `/usr/local/heroku/bin` directory was added to your PATH because we will put the **heroku** launcher script there*
-
-## Installing Nightcode
-
-On the [Nightcode home page](https://sekao.net/nightcode/) you can download
-and install a `*.deb` for Debian/Ubuntu, `*.rpm` for RedHat/Fedora,
-or `*.jar` file for any other distribution.
-
-If you download the `*.jar` you can place it in your `~/bin` directory and
-use our handy launcher script. NOTE: for this method we also install the
-Clojure jar here to get started:
-
-```
-clojurista@mylaptop$ cd ~/bin
-clojurista@mylaptop$ mv ~/Downloads/Nightcode*.jar ./
-clojurista@mylaptop$ curl -O https://raw.githubusercontent.com/clojurebridge-minneapolis/installfest/master/docs/linux/nightcode
-clojurista@mylaptop$ chmod +x nightcode
-```
-
-Now you should be able to launch it by typing `nightcode` in a terminal:
-
-![Nightcode](img/ubuntu/nc1.png)
-
-This is starting a REPL... which we will learn about soon. It's a special
-terminal for Clojure. At the REPL prompt type `(+ 2 3)` and press Return.
-Did you get the answer `5` back?
-You will learn more about that in the workshop.
-
 ## Installing Leiningen
 
 Leiningen is a tool used on the command line to manage Clojure projects.
@@ -93,6 +45,7 @@ Go to the [Leiningen website](http://leiningen.org/). You will see a link to the
 After that, run the following commands in your terminal:
 
 ```
+clojurista@mylaptop$ mkdir ~/bin
 clojurista@mylaptop$ cd ~/bin
 clojurista@mylaptop$ mv ~/Downloads/lein ./
 clojurista@mylaptop$ chmod +x lein
@@ -164,7 +117,7 @@ clojurista@mylaptop$
 
 ## Testing your setup
 
-You have set up Java, Nightcode, Leiningen, Git, and Heroku on your computer -- all the tools you will need for this course. Before starting, we need to test them out.
+You have set up Java, Atom, Leiningen, Git, and Heroku on your computer -- all the tools you will need for this course. Before starting, we need to test them out.
 
 Go to your terminal and download a copy of the [clojure-getting-started](https://github.com/heroku/clojure-getting-started) repository:
 
@@ -172,27 +125,6 @@ Go to your terminal and download a copy of the [clojure-getting-started](https:/
 clojurista@mylaptop$ mkdir -p ~/src/github/heroku
 clojurista@mylaptop$ git clone https://github.com/heroku/clojure-getting-started.git
 clojurista@mylaptop$ cd clojure-getting-started
-clojurista@mylaptop$
-```
-
-Now in Nightcode click the **Import** button and select the **clojure-getting-started** directory:
-
-![Nightcode](img/ubuntu/nc2.png)
-
-Open the `web.clj` file by opening up the `src` and `clojure-getting-started` directories. Then change the line ` :body "Hello from Heroku"})` with
-` :body "Hello Clojurista from Heroku!"})` (i.e. you can put in your
-name or anything you want)!
-
-![Nightcode](img/ubuntu/nc3.png)
-
-Now click the **Save** button. We'll save this change in **git** by
-making the following commit:
-
-```
-clojurista@mylaptop$ git commit -a -m 'modified greeting'
-git commit -a -m 'modified greeting'
-[master 2824daa] modified greeting
- 1 file changed, 1 insertion(+), 1 deletion(-)
 clojurista@mylaptop$
 ```
 

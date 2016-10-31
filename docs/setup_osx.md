@@ -4,7 +4,6 @@ OS X Setup
 * [Start a terminal](#starting-a-terminal)
 * [Make sure Java is installed](#making-sure-java-is-installed)
 * [Get Leiningen installed](#installing-leiningen)
-* [Get Atom installed](#installing-atom)
 * [Get Heroku installed (includes Git)](#getting-setup-with-heroku)
 * [Test installation](#testing-your-setup)
 
@@ -47,12 +46,6 @@ source .bashrc
 ```
 
 After you run the above commands, run the `lein version` command. It should take a while to run, as it will download some resources it needs the first time. If it completes successfully, you are golden! If not, ask an instructor for help.
-
-## Installing Atom
-
-Go to the [Atom site](http://atom.io) and click the download link. 
-
-There should now be a file named atom-mac.zip in your Downloads folder. Double-click the file to unzip it, then move Atom.app to your Applications folder.
 
 ## Getting setup with Heroku
 
