@@ -1,4 +1,4 @@
-# Older koans documentation
+# Koans
 
 The Clojure Koans are a series of exercises designed to teach Clojure. Periodically
 through the track 2 curriculum we'll be referencing them. For this document we'll
@@ -7,11 +7,11 @@ couple sets of problems.
 
 More information can be found at the Clojure Koans website: http://www.clojurekoans.com
 
-** Getting started **
+## Getting started
 
 First lets clone the koans repository:
 
-`git clone https://github.com/clojurebridge-minneapolis/clojure-koans`
+`git clone git://github.com/functional-koans/clojure-koans.git`
 
 Lets poke around the repo we just cloned:
 
@@ -62,7 +62,7 @@ We shall contemplate truth by testing reality, via equality
 (= __ true)
 ```
 
-Now open up the clojure-koans base repository directory in your preferred editor.
+Now open up the clojure-koans base repository directory in atom.
 Open up the first set of koans `01_equalities.clj`. The objective of the koans is to
 fix the assertion that is currently being displayed in your terminal by filling in
 the `__`. As you save the file it will check to see if your answer is correct and
@@ -83,12 +83,8 @@ to:
 ```
 
 Save the file, we should now see the koan runner move on to the next problem.
-Before tomorrow try to get through this list of koans:
+Try to get through the 1st set of koans before tomorrow:
 
 ```
 01_equalities.clj
-02_lists.clj
-03_vectors.clj
-04_sets.clj
-05_maps.clj
 ```
