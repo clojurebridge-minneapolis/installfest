@@ -9,9 +9,9 @@
  * [Java API Docs](http://docs.oracle.com/javase/8/docs/api/)
 
 ## More pointers to getting started
- * http://clojure.org/getting_started
- * http://clojure-doc.org/
- * http://clojuredocs.org/
+ * [http://clojure.org/getting_started](http://clojure.org/getting_started)
+ * [http://clojure-doc.org/](http://clojure-doc.org/)
+ * [http://clojuredocs.org/](http://clojuredocs.org/)
  * [Clojure on Stack Overflow](http://stackoverflow.com/questions/tagged/clojure)
 
 ## Exercises that help learn Clojure
@@ -27,6 +27,11 @@
  * Vim with [Fireplace](https://github.com/tpope/vim-fireplace)
  * Sublime Text with [SublimeREPL](https://github.com/wuub/SublimeREPL)
 
+## Finding Clojure libraries
+
+ * [Clojars](https://clojars.org/)
+ * [Clojure Toolbox](http://www.clojure-toolbox.com/)
+
 ## Books and tutorials
  * [Clojure for the brave and true](http://www.braveclojure.com/) - not yet finished, but has an online version
  * [Living Clojure](http://shop.oreilly.com/product/0636920034292.do)
@@ -41,7 +46,7 @@
 ## Cheatsheets
 
  * [ClojurebridgeCheatsheet-v2.pdf](https://github.com/ClojureBridge/curriculum/blob/gh-pages/ClojurebridgeCheatsheet-v2.pdf)
- * http://clojure.org/cheatsheet
+ * [http://clojure.org/cheatsheet](http://clojure.org/cheatsheet)
  * [GitHub Git Cheatsheet](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf)
  * [GitHub Cheatsheet](http://git.io/sheet)
  * [Git Visual Cheat Sheet](https://github.com/blog/104-visual-cheat-sheet)
