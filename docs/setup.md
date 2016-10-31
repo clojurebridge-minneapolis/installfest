@@ -27,7 +27,7 @@ By the end of these instructions, you will have the following installed:
 
 * **Java** the platform atop which Clojure runs
 * **Leiningen** a build tool for Clojure programs
-* **Nightcode** an Integrated Development Environment for Clojure
+* **Atom** a text editor
 * **Git** a program for saving and sharing your program's code (included in the Heroku Toolbelt)
 * The **Heroku** Toolbelt: a program for publishing your Clojure application on the web
 
