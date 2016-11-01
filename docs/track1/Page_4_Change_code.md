@@ -1,44 +1,6 @@
-# Chapter 4: Branches, Merges, Commits
+# Chapter 4: Merges and Commits
 
-In this section, we will alter the code. We will start with something small and fix the `readme.md.` Before we do that, we want to branch the code to ensure we can track the changes we make. Branching the code is a version control method; we keep the original files on the master branch and create a separate branch where we will make the changes. When we are confident our changes are correct, we will merge the new branch to the existing master branch. The updated files on the new branch essentially overwrite the files on the master branch.
-
-#### <a name="branch-the-code">Branch the code</a>
-
-Branching tells git that we are making changes to the current set of files and that we want to have a specific name for this version. To check what branch you are currently on, enter:
-
-    $: git status
-    On branch master
-    Your branch is up-to-date with 'origin/master'.
-    nothing to commit, working directory clean
-
-This tells us we are currently on the master branch. This is where the original code lives, we want to create a new branch where we can make changes. To create a new branch, use the "git branch" command and name the new branch. Let's call our new branch "fix-readme". This is a reminder to ourselves what kind of changes we are making in this new branch.
-
-    $: git branch fix-readme
-
-If you enter `git branch` without the specific branch name, the terminal will list all branches that exist in this directory. 
-
-    $: git branch
-    fix-readme
-    * master
-
-Notice there are now two branches, `master` and `fix-readme`. The asterisk (*) indicates which branch you are on. In the command above, you see we are on the master branch. We want to switch to the `fix-readme` branch. We do this by "checking out" the branch we want to be on. Then we will confirm we are on the new branch.
-
-    $: git checkout fix-readme
-    Switched to branch 'fix-readme'
-
-
-    $: git branch
-    * fix-readme
-    master
-
-
-    $: git status
-    On branch fix-readme
-    nothing to commit, working directory clean
-
-We've confirmed we are now on the `fix-readme` branch.
-
-It's important to check out the branch when making changes. Git does not do it automatically, so you can end up committing changes to the `master` branch. This usually isn't disastrous, but it's often very messy to clean up if things go wrong and it's difficult to keep track of versions.
+In this section, we will alter the code. We will start with something small and fix the `README.md.`
 
 #### Changing README.md
 
@@ -47,7 +9,7 @@ Open the `README.md` file in your editor and replace the two "FIXMEs" with diffe
 Now, if you ask git for the status, it will show that `README.md` has changed.
 
     $: git status
-    On branch fix-readme
+    On branch master
     Changes not staged for commit:
     (use "git add <file>..." to update what will be committed)
     (use "git checkout -- <file>..." to discard changes in working directory)
@@ -86,7 +48,7 @@ Since we changed the description in the `README.md`, we might as well change the
 
 
     $: git status
-    On branch fix-readme
+    On branch master
     Changes not staged for commit:
       (use "git add <file>..." to update what will be committed)
       (use "git checkout -- <file>..." to discard changes in working directory)
@@ -98,7 +60,7 @@ Since we changed the description in the `README.md`, we might as well change the
 
 #### Adding And Committing The Changes
 
-Now that our the changes in the editor are saved, let's add and commit the changes to our new branch. _Adding_ files to the branch puts the updated files on the branch. _Committing_ the updated files to the branch saves creates a specific version of the branch - it puts a timestamp and version description of the current state of the branch. You must add, then commit files to the branch.
+Now that our the changes in the editor are saved, let's add and commit the changes. _Adding_ files prepares to upload the updated files. _Committing_ actually records a snapshot of files -- it puts a timestamp and version description of the current state of the project.
 
 First, _add_ the specific file(s) with "`git add` + file name" to the branch you are on:
 
@@ -107,27 +69,28 @@ First, _add_ the specific file(s) with "`git add` + file name" to the branch you
 Confirm the file was added by checking the status:
 
     $: git status
-    On branch fix-readme
+    On branch master
     Changes to be committed:
       (use "git reset HEAD <file>..." to unstage)
 
 	modified:   README.md
 	modified:   project.clj
 
-Two files have been added (modified) and the changes can be _committed_ to the branch. When you enter the `git commit` command, make sure to enter a description of the changes you are committing; this will help you identify versions and changes. Add a quick note after the file names `-m "comment on changes"`.
+Two files have been added (modified) and the changes can be
+_committed_. When you enter the `git commit` command, make sure to enter a description of the changes you are committing; this will help you identify versions and changes. Add a quick note after the file names `-m "comment on changes"`.
 
     $ git commit -m "fixing README.md description"
-    [fix-readme 57aff88] fixing README.md description
+    [master 57aff88] fixing README.md description
      2 files changed, 3 insertions(+), 3 deletions(-)
 
 
-Check the branch status again: 
-    
+Check the status again:
+
     $: git status
-    On branch fix-readme
+    On branch master
     nothing to commit, working directory clean
 
-Git status reports no uncommitted changes because we successfully committed the updated files to the `fix-readme` branch. 
+Git status reports no uncommitted changes because we successfully committed the updated files.
 
 You can also the check the log to see what commits have been made, when they were made, and the brief comment on the commit.
 
@@ -144,54 +107,7 @@ You can also the check the log to see what commits have been made, when they wer
 
         initial commit
 
-You see two commits: the last commit from our original branch (initial commit) and our new commit (fixing README.md description).
-
-#### Merging The Changes
-
-Once we are satisfied with the updated files and they are successfully committed on the `fix-readme` branch, we'll merge those changes on to the `master` branch. This means we are going to overwrite the existing files (or add new files) on the master branch.
-
-First, go to the `master` branch and check its log. 
-
-    $: git checkout master
-    Switched to branch 'master'
-    Your branch is up-to-date with 'origin/master'.
-
-    $: git log
-    commit 44a560f1653770afac01aea2c9279a7af46a46eb
-    Author: crkoehnen <crkoehnen@gmail.com>
-    Date:   Sun Dec 28 16:43:37 2014 -0600
-
-        initial commit
-
-Note that `master` is lagging behind the `fix-readme` branch. It doesn't have the commit with the README changes. We will fix that by merging our `fix-me` branch into the `master` branch.
-
-    $: git merge fix-readme
-    Updating 44a560f..57aff88
-    Fast-forward
-     README.md   | 4 ++--
-     project.clj | 2 +-
-     2 files changed, 3 insertions(+), 3 deletions(-)
-
-The merge brought in the changes. If we check the log, we'll see two commits now. The initial commit and our "readme.md" changes.
-
-    $: git log
-    commit 57aff889c81698394faf8568b63f14130d32599a
-    Author: crkoehnen <crkoehnen@gmail.com>
-    Date:   Sun Dec 28 17:33:41 2014 -0600
-
-        fixing README.md description
-
-    commit 44a560f1653770afac01aea2c9279a7af46a46eb
-    Author: crkoehnen <crkoehnen@gmail.com>
-    Date:   Sun Dec 28 16:43:37 2014 -0600
-
-        initial commit
-
-#### Deleting the fix-readme branch
-
-Now that we've pulled the changes from the `fix-readme` branch into `master`, we no longer need the `fix-readme` branch, so let's delete it.
-
-    $: git branch -d fix-readme
+You see two commits: the last commit from our initial commit and our new commit (fixing README.md description).
 
 #### Pushing to GitHub
 

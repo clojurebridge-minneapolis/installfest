@@ -88,9 +88,9 @@ We also need a Procfile in the top directory containing the line `web: java $JVM
 
 Stop the server using control-c, then restart with the command:
 
-```lein with-profile trampoline run```
+```lein run```
 
-If the local web page still works; add and commit your changes, then merge your branch back into master.  Push the master branch to github.
+If the local web page still works; add and commit your changes, then push to github.
 
 Now we'll deploy to heroku with the following commands:
 +   `heroku create`
@@ -138,4 +138,3 @@ Try the traceroute command again against the address Heroku assigned your app:
 Try going to each other's app.
 
 To delete the app from Heroku, select the app in the dash board, click settings, delete app is on the bottom.  Then,`git remote remove heroku` in the command line.
-

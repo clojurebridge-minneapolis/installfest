@@ -12,11 +12,13 @@ Clojure is a modern Lisp, which is a programming language, with a focus on funct
 
 * The core language is small and easy to learn.
 * The design makes it easy to write correct programs.
-* Clojure makes it easier to write concurrent programs &mdash; programs that do more than one thing at a time.
+* Clojure makes it easier to write concurrent programs -- programs that do more than one thing at a time.
 * Clojure programs are fast.
 * Clojure programs can build on Java libraries.
 
-Most programmers have to use multiple languages to get their jobs done.  Web applications often use HTML, CSS, and JavaScript.  We'll touch on each of those as we build our web app.
+Most programmers have to use multiple languages to get their jobs
+done.  Web applications often use HTML, CSS, and JavaScript.  We'll
+touch on each of those as we build our web app.
 
 ### The Web: a basic overview
 
@@ -24,52 +26,44 @@ The Internet is a bunch computers all over the world communicating with
 each other using a variety of computer programs.  Some of those programs
 are servers that listen for requests and respond with data.
 
-Your web browser is a program that sends requests over HTTP (HyperText Transfer Protocol). Entering, [https://github.com](https://github.com) into your browser's address bar tells your browser that you want to see that page.
+Your web browser is a program that sends requests over HTTP (HyperText Transfer Protocol). Entering, [https://facebook.com](https://facebook.com) into your browser's address bar tells your browser that you want to see that page.
 
-[https://github.com](https://github.com) is actually a human-readable alias for the numerical address of GitHub's servers.  Since your computer isn't directly connected to GitHub, your computer (through your web browser) asks the computers connected to GitHub to forward the request. This request may be passed through various computers to retrieve the data (web page).
+[https://facebook.com](https://facebook.com) is actually a human-readable alias for the numerical address of Facebook's servers.  Since your computer isn't directly connected to Facebook, your computer (through your web browser) asks the computers connected to Facebook to forward the request. This request may be passed through various computers to retrieve the data (web page).
 
-On Linux or a Mac, the command `traceroute` shows you the number of hops request takes to get to GitHub.  (On Windows, the command is called `tracert`.)
+On Linux or a Mac, the command `traceroute` shows you the number of hops request takes to get to Facebook.  (On Windows, the command is called `tracert`.)
 
 On my machine, working from home:
+```
+clojurista@mylaptop$ traceroute facebook.com
+traceroute to facebook.com (157.240.2.35), 30 hops max, 60 byte packets
+ 1  tl-wr1043nd (10.9.8.1)  0.393 ms  0.460 ms  0.561 ms
+ 2  96.120.48.9 (96.120.48.9)  7.469 ms  11.688 ms  12.649 ms
+ 3  te-0-5-0-13-sur02.crosstown.mn.minn.comcast.net (68.86.234.117)  12.796 ms  12.796 ms  12.823 ms
+ 4  be-1-ar01.roseville.mn.minn.comcast.net (68.87.174.177)  13.680 ms  13.787 ms  13.806 ms
+ 5  be-13367-cr02.350ecermak.il.ibone.comcast.net (68.86.94.81)  24.275 ms *  24.248 ms
+ 6  hu-0-17-0-1-pe04.350ecermak.il.ibone.comcast.net (68.86.87.218)  23.276 ms  23.137 ms  23.059 ms
+ 7  50.248.117.254 (50.248.117.254)  21.843 ms  19.474 ms  21.828 ms
+ 8  po141.asw03.ord3.tfbnw.net (157.240.33.176)  21.007 ms po141.asw02.ord3.tfbnw.net (157.240.33.174)  18.748 ms po141.asw04.ord3.tfbnw.net (157.240.33.178)  22.339 ms
+ 9  po203.psw01c.ort2.tfbnw.net (157.240.33.205)  22.329 ms po202.psw01a.ort2.tfbnw.net (157.240.33.193)  21.234 ms po202.psw01b.ort2.tfbnw.net (157.240.33.195)  22.222 ms
+10  173.252.67.163 (173.252.67.163)  22.160 ms 173.252.67.77 (173.252.67.77)  20.741 ms 173.252.67.175 (173.252.67.175)  18.836 ms
+11  edge-star-mini-shv-01-ort2.facebook.com (157.240.2.35)  19.917 ms  19.859 ms  21.881 ms
+clojurista@mylaptop$
+```
 
-        $: traceroute github.com
-        traceroute to github.com (192.30.252.130), 30 hops max, 60 byte packets
-        1  192.168.1.1 (192.168.1.1)  5.913 ms  5.908 ms  6.000 ms
-        2  * 96.120.49.33 (96.120.49.33)  30.033 ms  30.066 ms
-        3  te-0-3-0-1-sur02.webster.mn.minn.comcast.net (68.85.167.149)  30.553 ms  32.776 ms  32.785 ms
-        4  te-0-7-0-12-ar01.roseville.mn.minn.comcast.net (69.139.219.134)  32.778 ms  36.059 ms te-0-7-0-13-ar01.roseville.mn.minn.comcast.net (68.87.174.185)  35.686 ms
-        5  he-1-13-0-0-cr01.350ecermak.il.ibone.comcast.net (68.86.94.81)  42.354 ms *  43.213 ms
-        6  be-10206-cr01.newyork.ny.ibone.comcast.net (68.86.86.225)  63.574 ms  59.894 ms  62.441 ms
-        7  pos-2-5-0-0-cr01.dallas.tx.ibone.comcast.net (68.86.85.25)  64.643 ms  64.659 ms  64.653 ms
-        8  he-3-14-0-0-cr01.dallas.tx.ibone.comcast.net (68.86.85.1)  67.039 ms  67.079 ms  67.056 ms
-        9  he-0-10-0-0-pe07.ashburn.va.ibone.comcast.net (68.86.83.66)  63.013 ms  67.045 ms  88.273 ms
-        10  * * *
-        11  * * *
-        12  * * *
-        13  * * *
-        14  * * *
-        15  * * *
-        16  * * *
-        17  * * *
-        18  * * *
-        19  * * *
-        20  * * *
-        21  * * *
-        22  * * *
-        23  * * *
-        24  * * *
-        25  * * *
-        26  * * *
-        27  * * *
-        28  * * *
-        29  * * *
-        30  * * *
++ Line 1 is my home router address.
++ Line 2 is my first server from my Internet Service Provider (ISP) Comcast
++ Lines 3-6 is are routers within the Comcast network
+* Lines 7-10 are routers on the way towards Facebook
+* Line 11 is the Facebook server my browser will communicate with
 
-+ Line 1 is my computer server address.
-+ Line 2 is my router server address.
-+ Lines 3-30, the request is moving through Comcast's network of servers to get the information.
-
-When you enter [https://github.com](httpss://github.com) in the address bar, your browser makes a GET request to the GitHub server. There are several types of HTTP requests, but GET is the one that asks the server to send data from a specified resource.  The server sends back an HTML page and the Web browser turns the HTML into the web page you see through a process called rendering. You can see the HTML by right-clicking on the page and selecting `View Page Source`.
+When you enter [https://facebook.com](httpss://facebook.com) in the
+address bar, your browser makes a GET request to the Facebook
+server. There are several types of HTTP requests, but GET is the one
+that asks the server to send data from a specified resource.  The
+server sends back an HTML page and the Web browser turns the HTML into
+the web page you see through a process called rendering. You can see
+the HTML by right-clicking on the page and selecting `View Page
+Source` (on Mac OS X you do **CTRL-click** instead of right-clicking).
 
 
 ### HTML Proper
@@ -80,7 +74,7 @@ HTML stands for "HyperText Markup Language".
 Hypertext means documents can contain links to other pages or images. The structure of the HTML document is encoded using a markup language consisting of opening and closing elements (also called tags). Each segment of text is formatted according to the type of tag (`<body>`, `<title>`, `<h2>`, etc). Each segment of text needs an opening tag, `<body>`, and a closing tag, `</body>`. The `/` signifies the end of the formatting for that segment.
 
 #### Let's see it in action
-Open a text editing program and enter the following text: 
+Open a text editing program and enter the following text:
 
 ```HTML
 <!DOCTYPE html>
@@ -96,8 +90,7 @@ Open a text editing program and enter the following text:
 
 Save the file as 'sample.html'. Then open the file in the web browser. On Windows or a Mac, double-click the file to open it in the default browser, or right-click and select `Open With`. In your browser you should see something like this,
 
-![](https://github.com/clojurebridge-minneapolis/track1-chatter/raw/master/images/sample%20html.png "sample html")
-
+![sample html](sample-html.png)
 
 Notice the address bar. Instead of making an HTTP request to a server over the Internet, the browser  opened a local file and displayed the HTML. Remember, the web browser renders the HTML to make it appear as you see it in the browser. Right-click the page and select `View Page Source` to see the HTML elements of the file you saved.
 
@@ -150,7 +143,7 @@ HTML supports tables as well. Add a table to your sample HTML by adding the foll
 </table>
 ```
 
-![](https://github.com/clojurebridge-minneapolis/track1-chatter/raw/master/images/HTML%20table.png "HTML table")
+![HTML table](HTML-table.png)
 
 `table` encloses the entire table.
 
@@ -158,21 +151,17 @@ HTML supports tables as well. Add a table to your sample HTML by adding the foll
 
 `td` wraps table data, creating a cell within a row.
 
-When you save and refresh the page, you see the table. You might notice it also looks pretty bad. The HTML we've been using describes the basic structure of the document and leaves the display entirely up to the browser. Another language, called CSS, is used so the browser can display the page in a more pleasing way.  We'll touch on CSS later. 
+When you save and refresh the page, you see the table. You might notice it also looks pretty bad. The HTML we've been using describes the basic structure of the document and leaves the display entirely up to the browser. Another language, called CSS, is used so the browser can display the page in a more pleasing way.  We'll touch on CSS later.
 
 The HTML file we have is _static HTML_. The HTML we see in the web browser is simply the code we have written in the text file. Static HTML works great for some kinds of pages, but our page will change depending on the messages people post to it.
 So instead of having a file with HTML, we will have a program listening for requests that generate the HTML. As people make requests and post messages, it will generate HTML that reflects the posts.
 
 There's a lot more to HTML, but this gives us enough knowledge for our Chat app.
 
-In the next section, [Chapter 3: Starting the Project](Page%203_Start%20project.md), we'll start coding our Chatter app.
+In the next section, [Chapter 3: Starting the Project](Page_3_Start_project.md), we'll start coding our Chatter app.
 
+#### More HTML Resources
 
-
-####More HTML Resources
-
-[w3schools.com](http://www.w3schools.com) is a great source for
-learning more about html. Start with the
-[HTML Introduction](http://www.w3schools.com/html/html_intro.asp).
-
-[Mozilla Developer Network](http://developer.mozilla.org/) is another useful resource.
+* [Mozilla Developer Network](http://developer.mozilla.org/) is a great source for learning more about html. Start with the
+* [w3schools.com](http://www.w3schools.com) is another useful resource.
+  * [HTML Introduction](http://www.w3schools.com/html/html_intro.asp).
