@@ -2,21 +2,46 @@
 
 Now let's change the app's main page from "Hello, World" to something a little more chatty.
 
-First, let's create and checkout a new branch called, `view-messages`. If you need a refresher on [creating and checking out branches](Page_4_Change_code.md#branch-the-code), review Chapter 4. Once you are on the new `view-messages` branch, we'll move on to updating the code.
-
 ### Adding Hiccup
 
-We need to write code that will generate HTML. To do this, we will use a library called `hiccup`. We don't have this library yet, so we're going to add it. Adding a new library requires two steps:
+We need to write code that will generate HTML. To do this, we will use a library called `hiccup`. A library is a separate set of functions that we can add to our program. We don't have this library yet, so we're going to add it. Adding a new library requires two steps:
 
 1) Add the library to the dependency section of the `project.clj` file. This tells lein your program needs another program.
 
-Add hiccup by updating the `project.clj` file to look like this:
+Add hiccup by updating the `project.clj` file to look like this
+(in fact we're updating a bunch of old libary versions here):
 
 ```clojure
-  :dependencies [[org.clojure/clojure "1.7.0"]
-                 [compojure "1.4.0"]
-                 [ring/ring-defaults "0.1.5"]
-                 [hiccup "1.0.5"]]
+(defproject chatter "0.1.0-SNAPSHOT"
+  :description "clojure web app for displaying messages"
+  :url "http://example.com/FIXME"
+  :min-lein-version "2.0.0"
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [compojure "1.5.1"]
+                 [ring/ring-core "1.5.0"
+                  :exclusions [org.clojure/tools.reader]]
+                 [ring "1.5.0"]
+                 [ring/ring-jetty-adapter "1.5.0"]
+                 [ring/ring-defaults "0.2.1"]
+                 [hiccup "1.0.5"]
+                 [hickory "0.7.0"]
+                 [environ "1.1.0"]]
+  :plugins [[lein-ring "0.9.7"]
+            [lein-environ "1.0.0"]]
+  :ring {:handler chatter.handler/app
+         :init chatter.handler/init
+         :destroy chatter.handler/destroy}
+  :aot :all
+  :main chatter.handler
+  :profiles
+  {:dev
+   {:dependencies [[javax.servlet/servlet-api "2.5"]
+                   [ring/ring-mock "0.3.0"]]}
+   :production
+   {:ring
+    {:open-browser? false, :stacktraces? false, :auto-reload? false}
+    :env {production true}}}
+  :uberjar-name "chatter-standalone.jar")
 ```
 
 2) Import the library into the namespace you will use it in by adding the import to the `ns` declaration. Our ns declaration will be part of the `handler.clj` file:
@@ -49,9 +74,7 @@ Once the code is updated, let's try it out. In the command line, start the serve
 
 Now `http://localhost:3000` displays "Our Chat App".  Right-click and select `View Page Source` to see  it's now proper HTML complete with `head`, `title`, and `body`.
 
-The hiccup function(*) `page/html5` generates an HTML page. It expects Clojure vectors with symbols representing corresponding HTML tags. Hiccup will automatically add the closing tag when it reaches the end of the vector.
-
-* _<<< include screenshot >>>_
+The hiccup function `page/html5` generates an HTML page. It expects Clojure vectors with symbols representing corresponding HTML tags. Hiccup will automatically add the closing tag when it reaches the end of the vector.
 
 Compare the hiccup to HTML in `View Page Source` to the HTML we wrote by hand earlier.
 
@@ -59,7 +82,7 @@ Compare the hiccup to HTML in `View Page Source` to the HTML we wrote by hand ea
 
 >_Vectors_ are a Clojure data structure used to contain sequences of things, including other vectors. Vectors are often written using square brackets. For example, `[1 2 3]` is a vector containing the numbers 1, 2, and 3. Hiccup uses vectors of keywords to represent sections of HTML.
 
->_Keywords_ are names that begin with a colon.  `:title`, `:x`, and `:favorite-color` are all keywords. Clojure often uses keywords where other languages use strings. If you were to use Clojure to query a database, Clojure would probably use keywords to represent the column names.  Hiccup uses keywords to represent the names of HTML elements.  
+>_Keywords_ are names that begin with a colon.  `:title`, `:x`, and `:favorite-color` are all keywords. Clojure often uses keywords where other languages use strings. If you were to use Clojure to query a database, Clojure would probably use keywords to represent the column names.  Hiccup uses keywords to represent the names of HTML elements.
 
 > Where HTML uses `<body>`, hiccup would expect `:body`. Where HTML uses `<title>`, hiccup uses
 > `:title`. Because the keywords are enclosed in a vector, the closing of the HTML tag is unnecessary.  The closing of the surrounding vector signals where the HTML section ends.
@@ -119,7 +142,7 @@ Save `handler.clj`, and refresh the browser to make sure our page still works. F
 
 
     $: git status
-    On branch view-messages
+    On branch master
     Changes not staged for commit:
        (use "git add <file>..." to update what will be committed)
        (use "git checkout -- <file>..." to discard changes in working directory)
@@ -129,39 +152,30 @@ Save `handler.clj`, and refresh the browser to make sure our page still works. F
 
     no changes added to commit (use "git add" and/or "git commit -a")
 
-That looks right so [add, commit, merge the changes back to master, and then push to GitHub](Page_4_Change_code.md#adding-and-committing-the-changes).  Then, delete the `view-messages` branch. You should see the commit numbers go up on GitHub.
+That looks right so [add, commit, and then push to GitHub](Page_4_Change_code.md#adding-and-committing-the-changes).
 
 ### Adding Messages
 
 Our app is not displaying messages, nor do we have a way of adding messages. Let's make that happen now.
 
-[Create and check out a branch to work on](Page_4_Change_code.md#branch-the-code).
-
-Let's change the app so it displays messages. We'll represent the messages as a vector of maps. Each map will have a `:name` and `:message`key and the corresponding value, in quotes.  For example, the code below will represent blue's first post.
+Let's change the app so it displays messages. We'll represent the messages as a vector of maps. Each map will have a `:name` and `:message` key and the corresponding value, in quotes.  For example, the code below will represent blue's first post.
 
 ```clojure
 {:name "blue" :message "blue's first post"}
 ```
 
-This is a map with two keys. 
-<ol>
-<li> `:name` is "blue", because blue posted it</li>
-<li>`:message` is the content of the post
-and its value is "blue's first post".</li>
-</ol>
+This is a map with two keys:
+* `:name` is "blue", because blue posted it
+* `:message` is the content of the post and its value is "blue's first post"
 
 Programs often need to associate keys with values and the usual data structure for doing that are hash tables. Clojure calls them maps and they look like this:
- 
- `clojure`
- 
-`(def cities`
 
-` {"Tokyo" 37900000`
-
-`"Delhi" 26580000`
-  
-`"Seoul" 26100000})`
- 
+```clojure
+(def cities
+  {"Tokyo" 37900000
+   "Delhi" 26580000
+   "Seoul" 26100000})
+```
 
 Here `cities` is a hash table whose _keys_ are strings (in this case the names of cities) and the _values_ are the populations of each city.
 
@@ -170,22 +184,21 @@ To get a value from a map, pass the map and key into the `get` function. For exa
 ```clojure
 (get cities "Tokyo")
 ```
-returns 37900000. When the keys are keywords, you can also use the keyword as a function that takes the map and returns the values.
+returns `37900000`. When the keys are keywords, you can also use the keyword as a function that takes the map and returns the values.
 
 ```clojure
 (:name {:name "blue" :message "blue's first post"})
 ```
-returns "blue".
+returns `"blue"`.
 
-> ```clojure
-> (:message {:name "blue" :message "blue's first post"})
-> ```
-> returns "blue's first post".
->
+```clojure
+(:message {:name "blue" :message "blue's first post"})
+```
+returns `"blue's first post"`.
 
-Maps are everywhere in Clojure and are used for many things where other languages might use objects.
+Maps are everywhere in Clojure and are used for keeping track of collections of things.
 
-Let's call the vector simply `chat-messages` and hard code(*) some samples to get started. Add a chat-messages variable to `handler.clj`.
+Let's call the vector simply `chat-messages` and start with some sample messages to get started. Add a chat-messages variable to `handler.clj`.
 
 After the ns expression, add:
 
@@ -212,13 +225,11 @@ Next, we'll modify the HTML to display the messages.  We will also add a paramet
   (route/not-found "Not Found"))
 ```
 
-Save `handler.clj` and refresh the browser. 
+Save `handler.clj` and refresh the browser.
 
 This blows up spectacularly.
 
-![](https://github.com/clojurebridge-minneapolis/track1-chatter/raw/master/images/illegal-argument-exception.jpg "illegal-argument-exception")
-
-[]()
+![illegal-argument-exception](illegal-argument-exception.jpg)
 
 This is a stack trace - it gives us an idea what the program was doing when it hit the problem. Ignore all the files that aren't ones you wrote for the project. In my case, the first file of interest is
 `handler.clj`, line 14, the `generate-message-view` function.
@@ -243,7 +254,7 @@ Save `handler.clj`, and refresh the browser.
 
 This fixes the exception but it's ugly.
 
-![ugly hack](https://github.com/clojurebridge-minneapolis/track1-chatter/raw/master/images/ugly.jpg "ugly hack")
+![ugly hack](ugly.jpg)
 
 Let's take the messages and put them in a table using HTML's `table`, `tr`, and `td` elements.  We're going to write a function that takes a
 message and creates an HTML row. Then, inside a `table`, we're going to apply that function to all of our messages.
@@ -300,7 +311,7 @@ Now our `generate-message-view` looks like:
 
 Save `handler.clj`, then refresh the browser.  Our hard-coded messages should now display in the page.
 
-![hard coded messages](https://github.com/clojurebridge-minneapolis/track1-chatter/raw/master/images/hardcoded.jpg "hard coded messages")
+![hard coded messages](hardcoded.jpg)
 
 
 ### Forms
@@ -367,7 +378,7 @@ Now that we have imported the hiccup form function, we can use it to generate th
 
 `[:post "/"]` is a vector with the keyword `:post` and the string "/". This tells hiccup to make the method a `POST` to the `/` location.
 
-`"Name: "` is a string that will be the text displayed before the input field. 
+`"Name: "` is a string that will be the text displayed before the input field.
 
 `form/text-field` is a hiccup function for generating an input field of type "text". We're passing in the string "name".
 
@@ -436,7 +447,7 @@ Now our code looks like:
 
 Save `handler.clj` and refresh the browser. We should now have a form on the page where a user could submit a new message.
 
-![unwired form](https://github.com/clojurebridge-minneapolis/track1-chatter/raw/master/images/unwired-form.jpg "unwired form")
+![unwired form](unwired-form.jpg)
 
 
 ### Wiring the form
@@ -693,13 +704,11 @@ Our app now looks like:
 (def app (wrap-params app-routes))
 ```
 
-[Add, commit, merge the changes to master, push master to GitHub](Page_4_Change_code.md#branch-the-code), and delete the branch.
+[Add, commit, push to GitHub](Page_4_Change_code.md#branch-the-code)
 
 ### Bootstrap
 
 The app is working but is ugly. We can improve it by using CSS and JavaScript from a package of software called Twitter Bootstrap.
-
-[Create and checkout a new branch.](Page_4_Change_code.md#branch-the-code)
 
 In the head section of our HTML, we're going to include Bootstrap:
 
@@ -719,7 +728,7 @@ Now, let's change the table element from `:table` to `:table#messages.table`.
      (map (fn [m] [:tr [:td (:name m)] [:td (:message m)]]) messages)]
 ```
 
-This tells hiccup that we want the table to have an id of `messages` and a class of `table`. CSS works by looking for combinations of classes and structure and changing the appearance when an element matches a pattern. Bootstrap uses a set of predefined CSS to look for a common set of classes. One of them is table. 
+This tells hiccup that we want the table to have an id of `messages` and a class of `table`. CSS works by looking for combinations of classes and structure and changing the appearance when an element matches a pattern. Bootstrap uses a set of predefined CSS to look for a common set of classes. One of them is table.
 
 Save the file, then refresh the browser. It now looks better. Examine the HTML that's generated. You see an id and class field inside the table element.
 

@@ -39,7 +39,7 @@ In the terminal you see the message, "Started server on port 3000". This means y
 
 Stop the server connection by hitting "Ctrl + C" in the command line.
 
-Let's take a closer look at what's in the chatter directory. In LightTable, it looks like this:
+Let's take a closer look at what's in the chatter directory. In your editor it looks like this:
 
 ```
 .
@@ -65,7 +65,7 @@ Let's take a closer look at what's in the chatter directory. In LightTable, it l
 
 `src` is where the source code lives.
 
-`test` is where the tests are stored. (A best-practice method is to test the directory before starting the project &mdash; we will skip this step in this tutorial.)
+`test` is where the tests are stored. (A best-practice method is to test the directory before starting the project -- we will skip this step in this tutorial.)
 
 ### A closer look at the src directory
 
@@ -74,7 +74,7 @@ In the editor, open the file `src/chatter/handler.clj`.
 The file that ends with ".clj" indicates this is a Clojure file. Clojure programs are made up of _expressions_. Expressions are either a single name, number, string, or a list of expressions beginning with a paren (or parenthesis). These expressions make your app appear and function in a web browser.
 
 
-In the `src/chatter/handler.clj` file, the first expression `(ns chatter.handler ...` tells Clojure what we want to call the namespace (ns) being defined in this file. In this case we want to call it "chatter.handler". 
+In the `src/chatter/handler.clj` file, the first expression `(ns chatter.handler ...` tells Clojure what we want to call the namespace (ns) being defined in this file. In this case we want to call it "chatter.handler".
 
 The sub-expression, the expression below, begins with `(:require ...`. This is importing the ring and compojure libraries. Those are low-level Clojure libraries for building web apps.
 
@@ -101,14 +101,14 @@ After the GET request is the second route definition `app-route`, which is:
 
 This means when the server gets any kind of request other than GET, it should return "Not Found."
 
-In your browser, right-click on the page and select `Inspect Element With Firebug.`
+In your browser, right-click on the page and select `Inspect Element` (on Mac OS X you do **CTRL-click** instead of right-clicking).
 
-![](https://github.com/clojurebridge-minneapolis/track1-chatter/raw/master/images/Viewing%20the%20source.png "Inspecting the element showing the source")
+![Inspecting the element showing the source](Viewing-the-source.png)
 
 The `HTML` tab shows what the HTML document looks like. The default is an empty head and a body with the string "Hello World". This is different from what we saw when we used `View Page Source`. The
 browser requested html but only got a string back, and it fleshes out a legal page from this information.
 
-Click on the `Net` tab and refresh the page. You see the request is actually a GET request and the response contained a status code of 200 &mdash; that indicates the request was successful.
+Click on the `Net` tab and refresh the page. You see the request is actually a GET request and the response contained a status code of 200 -- that indicates the request was successful.
 
 In your browser address bar, type
 `http://localhost:3000/non-existent-page`. Now you see the GET request is in red and has a status of 404, which indicates that the server couldn't find the page. This was handled by the line,
@@ -152,7 +152,7 @@ In the Chatter directory, enter the command:
 Now git is monitoring our directory. Verify the status of our directory by entering,
 
     $: git status
-    
+
     On branch master
 
     Initial commit
@@ -222,7 +222,7 @@ There haven't been any changes since our last commit, so there's nothing to see.
 
 We see there's been one commit, the commit hash (which uniquely identifies every commit), the author's name, the date, and the commit comment.
 
-By keeping track of changes, git makes it easy to go back to an earlier point &mdash; you are creating different versions of the file. By itself, it won't do much if our hard drive suddenly dies. But git allows you to have repositories on other computers, so if your computer dies, your code lives on. GitHub is a company hosting source code; it's free if you don't mind that other people can see your code. As a safety measure, and for version control, we will put our code on GitHub.
+By keeping track of changes, git makes it easy to go back to an earlier point -- you are creating different versions of the file. By itself, it won't do much if our hard drive suddenly dies. But git allows you to have repositories on other computers, so if your computer dies, your code lives on. GitHub is a company hosting source code; it's free if you don't mind that other people can see your code. As a safety measure, and for version control, we will put our code on GitHub.
 
 Log into [https://github.com](https://github.com) and click, "create repository" (the "+" sign on the top menu). Name it "Chatter". That will open a page for your new repository. We want to push an existing repository, enter the following:
 
@@ -248,15 +248,10 @@ Back on GitHub, click on the "Chatter" link and you'll go to the main page for t
 
 Now we're going to start changing the templated code to make it our web app. We're going to follow a certain workflow:
 
-1. branch the code
-2. write some code
-3. try the code
-4. repeat 2-3 times until we're happy with the changes
-5. merge the branch into master
-6. push the changes to GitHub
+1. write some code
+1. try the code
+1. repeat 2-3 times until we're happy with the changes
+1. commit the changes
+1. push the changes to GitHub
 
-This methodology allows us to isolate changes in their own branch.  If we change our minds or discover we've made a mistake, it's easy to revert back to an earlier version using git.
-
-
-In [Chapter 4](Page%204_%20Change%20code.md) we will create a new branch to make changes on, change the code, then commit and merge the changes and push to GitHub.
-
+In [Chapter 4](Page_4_Change_code.md) we will create a new branch to make changes on, change the code, then commit and merge the changes and push to GitHub.
