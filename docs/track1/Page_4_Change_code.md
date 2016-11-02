@@ -62,7 +62,7 @@ Since we changed the description in the `README.md`, we might as well change the
 
 Now that our the changes in the editor are saved, let's add and commit the changes. _Adding_ files prepares to upload the updated files. _Committing_ actually records a snapshot of files -- it puts a timestamp and version description of the current state of the project.
 
-First, _add_ the specific file(s) with "`git add` + file name" to the branch you are on:
+First, _add_ the specific file(s) with "`git add` + file name":
 
     $: git add README.md project.clj
 
