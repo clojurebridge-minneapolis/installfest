@@ -152,7 +152,7 @@ Save `handler.clj`, and refresh the browser to make sure our page still works. F
 
     no changes added to commit (use "git add" and/or "git commit -a")
 
-That looks right so [add, commit, and then push to GitHub](Page_4_Change_code.md#adding-and-committing-the-changes).
+That looks right so [add, commit, and then push to GitHub](Page_4_Change_code.md#pushing-to-github).
 
 ### Adding Messages
 
@@ -704,7 +704,7 @@ Our app now looks like:
 (def app (wrap-params app-routes))
 ```
 
-[Add, commit, push to GitHub](Page_4_Change_code.md#branch-the-code)
+[Add, commit, push to GitHub](Page_4_Change_code.md#pushing-to-github)
 
 ### Bootstrap
 

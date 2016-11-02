@@ -22,7 +22,7 @@ See the detailed instructions on the [Installfest](setup.md) page.
 
 ## Dinner
 
-We will provide pizza, salad and soft drinks.
+We will provide pizza, salad, and soft drinks (& beer for those 21+)
 
 In addition to getting ready for the workshop this is
 a great chance to meet the other students and volunteers.

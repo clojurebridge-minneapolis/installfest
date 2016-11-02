@@ -254,4 +254,4 @@ Now we're going to start changing the templated code to make it our web app. We'
 1. commit the changes
 1. push the changes to GitHub
 
-In [Chapter 4](Page_4_Change_code.md) we will create a new branch to make changes on, change the code, then commit and merge the changes and push to GitHub.
+In [Chapter 4](Page_4_Change_code.md) we will change the code, then commit and merge the changes and push to GitHub.
