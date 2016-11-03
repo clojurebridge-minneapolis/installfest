@@ -1,6 +1,13 @@
 Installfest
 ===========
 
+Links to this ClojureBridgeMN documention
+
+* Short link [bit.ly/cb-mn](http://bit.ly/cb-mn)
+* QR code:
+
+![bit.ly/cb-mn](img/cb-mn-256.png)
+
 ## Requirements
 
 In order to run Clojure and the tools we'll be using for
