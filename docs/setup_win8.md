@@ -57,15 +57,23 @@ First, we need to create an account. Go to [Heroku](http://heroku.com) and click
 
 You will be taken to a form where you need to enter your email address in order to sign up. Fill out that form, and you will be sent an email with a link to click to continue the signup process.
 
-![Heroku step 2](img/heroku-step2.png)
+![Heroku step 2](img/win10/heroku-step2.png)
 
-After clicking on the link, you will be taken to another form where you will need to choose a password. Choose one and enter it twice.
+After clicking on the link, you will be directed to check your email for a comfirmation messages.
 
-![Heroku step 3](img/heroku-step3.png)
+![Heroku step 2](img/win10/heroku-step2a.png)
 
-After all that, you should be at your Heroku dashboard. There will be a link on the dashboard to download the Heroku Toolbelt. Download it now.
+An email from Heroku will contain a link to click which will confirm that the new account is connected to a valid email address.
 
-![Heroku dashboard](img/heroku-dashboard.png)
+![Heroku step 2](img/win10/heroku-step2b.png)
+
+After clicking on the link in the email, you will be taken to another form where you will need to choose a password. Choose one and enter it twice.
+
+![Heroku step 3](img/win10/heroku-step3.png)
+
+After all that, go [here](https://devcenter.heroku.com/articles/getting-started-with-clojure#set-up) and click "Download the Heroku CLI for Windows"
+
+![Heroku dashboard](img/win10/heroku-getting-started.png)
 
 If you do not see this link on your dashboard, you can download the toolbelt from [toolbelt.heroku.com](https://toolbelt.heroku.com/).
 
