@@ -162,6 +162,6 @@ In the next section, [Chapter 3: Starting the Project](Page_3_Start_project.md),
 
 #### More HTML Resources
 
-* [Mozilla Developer Network](http://developer.mozilla.org/) is a great source for learning more about html. Start with the
-* [w3schools.com](http://www.w3schools.com) is another useful resource.
+* [Mozilla Developer Network](http://developer.mozilla.org/) is a great source for learning more about html.
+* [w3schools.com](http://www.w3schools.com) is another useful resource. Start with the
   * [HTML Introduction](http://www.w3schools.com/html/html_intro.asp).
