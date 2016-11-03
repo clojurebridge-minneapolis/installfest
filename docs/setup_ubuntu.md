@@ -139,7 +139,7 @@ two commmands.
 1. `(require 'clojure-getting-started.web)`
 2. `(def server (clojure-getting-started.web/-main))`
 3. Now you can open the web page at [http://localhost:5000](http://localhost:5000)
-![Nightcode](img/ubuntu/nc4.png)
+![heroku test page](img/ubuntu/nc4.png)
 4. `(.stop server)`
 5. `(exit)`
 
@@ -234,3 +234,7 @@ uploaded to the Interet!!!
 You have made a very simple Clojure app and you are all set up to make more!
 
 You're ready for the workshop!!!
+
+## Try the koans
+
+If you're a track 2 student, try to tackle running the [koans](koans.md).
