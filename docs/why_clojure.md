@@ -93,7 +93,7 @@ first (instead of at the beginning of the list of arguments)
 
     italian_dinner(main_course, side, beverage);
 
-In designing Clojure Rich Hickey combined the good parts of LISP
+In designing Clojure, Rich Hickey combined the good parts of LISP
 and combined it with the powerful Java Virtual Machine.
 As a result Clojure is an *opinionated* LISP that...
 

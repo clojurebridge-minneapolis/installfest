@@ -4,12 +4,12 @@
 
 ##  Essential Resources
  * [Grimoire](http://conj.io/) *amazing online cheatsheet*
- * [Clojure Reference Documentation](http://clojure.org/documentation)
+ * [Clojure Reference Documentation](http://clojure.org/reference/documentation)
  * [Community-maintained Documentation for Common Clojure Functions](https://clojuredocs.org/quickref) with examples and discussion
  * [Java API Docs](http://docs.oracle.com/javase/8/docs/api/)
 
 ## More pointers to getting started
- * [http://clojure.org/getting_started](http://clojure.org/getting_started)
+ * [Clojure.org: Getting Started](http://clojure.org/guides/getting_started)
  * [http://clojure-doc.org/](http://clojure-doc.org/)
  * [http://clojuredocs.org/](http://clojuredocs.org/)
  * [Clojure on Stack Overflow](http://stackoverflow.com/questions/tagged/clojure)
@@ -23,7 +23,7 @@
  * [Nightcode](https://sekao.net/nightcode/)
  * Emacs with [CIDER](https://github.com/clojure-emacs/cider)
  * Eclipse with [Counterclockwise](http://doc.ccw-ide.org/)
- * Intellij with [Cursive](https://cursiveclojure.com/)
+ * Intellij with [Cursive](https://cursive-ide.com)
  * Vim with [Fireplace](https://github.com/tpope/vim-fireplace)
  * Sublime Text with [SublimeREPL](https://github.com/wuub/SublimeREPL)
 
@@ -47,9 +47,8 @@
 
  * [ClojurebridgeCheatsheet-v2.pdf](https://github.com/ClojureBridge/curriculum/blob/gh-pages/ClojurebridgeCheatsheet-v2.pdf)
  * [http://clojure.org/cheatsheet](http://clojure.org/cheatsheet)
- * [GitHub Git Cheatsheet](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf)
+ * [GitHub Git Cheatsheet](https://services.github.com/kit/downloads/github-git-cheat-sheet.pdf)
  * [GitHub Cheatsheet](http://git.io/sheet)
  * [Git Visual Cheat Sheet](https://github.com/blog/104-visual-cheat-sheet)
- * [Salesforce Git Cheat Sheet](https://na1.salesforce.com/help/pdfs/en/salesforce_git_developer_cheatsheet.pdf)
  * [Heroku Cheatsheet](http://ruten.ca/2012/02/15/heroku-cheatsheet-useful-heroku-commands-reference/)
  * [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)

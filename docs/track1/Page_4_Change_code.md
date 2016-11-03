@@ -1,4 +1,4 @@
-# Chapter 4: Merges and Commits
+# Chapter 4: Changes and Commits
 
 In this section, we will alter the code. We will start with something small and fix the `README.md.`
 
