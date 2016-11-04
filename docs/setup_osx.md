@@ -83,16 +83,6 @@ If you do not see this link, you can download the toolbelt from [toolbelt.heroku
 
 This will download a .pkg file. Double-click it to install the Heroku Toolbelt and follow all prompts from the installation wizard. You will need your OS X account password to complete installation. If you are prompted to create an SSH key, say yes. It may also prompt you to install git. Once the Heroku Toolbelt is installed, go to your terminal and run the command `heroku login`. You will be prompted for your email and password on Heroku. If you enter them and the command ends successfully, congratulations!
 
-![Heroku login](img/os_x/heroku_login.png)
-
-To make your computer automatically communicate securely with Heroku, you will need to set up SSH. First, go to your terminal and run the command `ssh-keygen`. When prompted for inputs, simply press Return until the process has finished.
-
-![Heroku SSH setup](img/os_x/heroku_ssh_setup.png)
-
-Finally, complete your SSH setup with Heroku by running the command `heroku keys:add`.
-
-![Heroku key-add](img/os_x/heroku_key_add.png)
-
 ## Testing your setup
 
 You have set up Java, Leiningen, Atom, Git, and Heroku on your computer--all the tools you will need for this course. Before starting, we need to test them out.

@@ -1,4 +1,4 @@
-# Koans
+# Chapter 2: Clojure Koans
 
 The Clojure Koans are a series of exercises designed to teach Clojure. Periodically
 through the track 2 curriculum we'll be referencing them. For this document we'll

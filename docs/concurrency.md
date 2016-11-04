@@ -1,4 +1,4 @@
-# Chapter 2: Concurrency
+# Chapter 3: Concurrency
 
 **The Chat Returns**
 

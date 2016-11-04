@@ -27,3 +27,6 @@ every time you want `git push` something to github.
 
 See the [detailed documentation](https://help.github.com/categories/ssh/)
 on getting **ssh** setup for github.
+
+Windows users may want to try [Git Bash](https://git-for-windows.github.io)
+as way of interacting with git and github.
