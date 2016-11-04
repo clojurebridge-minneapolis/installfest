@@ -114,7 +114,10 @@ This could take a long time, and will download many other pieces of code it reli
 
 ![Testing lein repl](img/win7/testing-step2.png)
 
-This is starting a REPL, which we will learn about soon. It's a special terminal for Clojure. At the REPL prompt, type `(+  1  1)` and hit enter. Did you get the answer `2` back? You will learn more about that in the course. For now, press the Control button and D button on your keyboard together (abbreviated as Ctrl+D). This should take you out of the Clojure REPL and back to your normal terminal prompt.
+This is starting a REPL, which we will learn about soon. It's a special terminal for Clojure. At the REPL prompt, type `(+  1  1)` and hit enter. Did you get the answer `2` back? You will learn more about that in the course.
+
+For now, enter `(quit)` to quit the REPL. _(NOTE: you can also type `(exit)` or press the Control button and D button on your keyboard together)_.
+This should take you out of the Clojure REPL and back to your normal terminal prompt.
 
 We only have one more thing to test, Heroku.
 
