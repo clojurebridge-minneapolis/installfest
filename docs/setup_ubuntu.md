@@ -128,11 +128,15 @@ clojurista@mylaptop$ cd clojure-getting-started
 clojurista@mylaptop$
 ```
 
-Now you can start the sample application on your laptop using **lein repl**.
-The first two Clojure commands start the application. You can then
+Now you can start the sample application on your laptop using **lein
+repl**.  This could take a long time, and will download many other
+pieces of code it relies on. You should see lines that start with
+`Retrieving ...` on your screen.
+
+Below you see the first two Clojure commands start the application. You can then
 visit the application webpage on your laptop at
 [http://localhost:5000](http://localhost:5000).
-Then you can shut down the application and exit with the last
+Then you can shut down the application and `(quit)` with the last
 two commmands.
 
 0. `lein repl`
@@ -141,7 +145,7 @@ two commmands.
 3. Now you can open the web page at [http://localhost:5000](http://localhost:5000)
 ![heroku test page](img/ubuntu/nc4.png)
 4. `(.stop server)`
-5. `(exit)`
+5. `(quit)`
 
 
 ```
@@ -179,7 +183,7 @@ open http://localhost:5000
 user=> (.stop server)
 2016-10-28 14:06:15.811:INFO:oejs.ServerConnector:nREPL-worker-1: Stopped ServerConnector@379cb9a6{HTTP/1.1}{0.0.0.0:5000}
 nil
-user=> (exit)
+user=> (quit)
 Bye for now!
 clojurista@mylaptop$
 ```
