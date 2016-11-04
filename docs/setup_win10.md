@@ -80,7 +80,16 @@ If you do not see this link on your dashboard, you can download the toolbelt fro
 
 You will download an .exe file. Run this executable to install the Heroku Toolbelt and follow all prompts from the installation wizard.
 
+Now you can login to heroku the first time:
 
+```
+clojurista@mylaptop$ heroku login
+Enter your Heroku credentials.
+Email: clojurista@gmail.com
+Password (typing will be hidden): ++++++++
+Logged in as clojurista@gmail.com
+clojurista@mylaptop$
+```
 ## Testing your setup
 
 You have set up Java, Leiningen, Atom, Git, and Heroku on your computer, all the tools you will need for this program. Before starting, we need to test them out. Make sure you have a command prompt (Windows) open for testing. We will just call this a terminal from now on.

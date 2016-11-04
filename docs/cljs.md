@@ -1,4 +1,4 @@
-# Chapter 3: ClojureScript
+# Chapter 4: ClojureScript
 
 *NOTE: this page is under construction*
 

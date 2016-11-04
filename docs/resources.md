@@ -27,6 +27,12 @@
  * Vim with [Fireplace](https://github.com/tpope/vim-fireplace)
  * Sublime Text with [SublimeREPL](https://github.com/wuub/SublimeREPL)
 
+## Related tools
+ * [boot](http://boot-clj.com) -- an alternative to **lein**
+ * Windows users may want to try [Git Bash](https://git-for-windows.github.io)
+as way of interacting with git and github.
+
+
 ## Finding Clojure libraries
 
  * [Clojars](https://clojars.org/)
@@ -36,6 +42,12 @@
  * [Clojure for the brave and true](http://www.braveclojure.com/) - not yet finished, but has an online version
  * [Living Clojure](http://shop.oreilly.com/product/0636920034292.do)
  * [Clojure from the ground up](https://aphyr.com/posts/301-clojure-from-the-ground-up-welcome) - an excellent resource for those new to programming
+
+## ClojureScript
+ * [ClojureScript.org](http://clojurescript.org)
+ * [lein-figwheel](https://github.com/bhauman/lein-figwheel/)
+ * [tenzing](https://github.com/martinklepsch/tenzing)
+ * [klipse](https://github.com/viebel/klipse) and the [klipse/clojure blog](http://blog.klipse.tech/clojure/2016/06/07/klipse-plugin-tuto.html)
 
 ## Videos
  * Rich Hickey: [Simple made Easy](http://www.infoq.com/presentations/Simple-Made-Easy)
