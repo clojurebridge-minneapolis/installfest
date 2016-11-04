@@ -21,13 +21,25 @@ For the rest of this setup, I will tell you to run commands in your terminal. Wh
 
 ## Making sure Java is installed
 
-Run `java -version` in your terminal. If you do not have Java installed, OS X will prompt you to install it. Follow all of the directions OS X gives you, then return to this part of the tutorial and run `java -version` again.
+Run `java -version` in your terminal.
 
 If Java is installed, you will see something like this in your terminal:
 
 ![Java version](img/os_x/java_version.png)
 
-The details of Java's version may differ from what you see above; that is perfectly fine.
+If Java is not installed, or the version number is less than 1.8 you can download it here [Java Downloads](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+
+![Java download 1](img/os_x/java-download1.png)
+
+Click the Java download button.
+
+![Java download 2](img/os_x/java-download2.png)
+
+Accept the license agreement, and download the version for Mac OS X.
+
+Double-click the jdk-8u111-macosx-x64.dmg file in your Downloads directory and walk through the installer.
+
+![Java download 1](img/os_x/java-installer1.png)
 
 ## Installing Leiningen
 
