@@ -2,7 +2,7 @@
 
 ## Overview
 
-This curriculum will introduce you to Clojure by creating a web app called Chatter. We will teach you to use the command line, make code changes in LightTable, and push those changes to GitHub so you can share your app with the world.
+This curriculum will introduce you to Clojure by creating a web app called Chatter. We will teach you to use the command line, make code changes in Atom, and push those changes to GitHub so you can share your app with the world.
 
 Each chapter below will work through different concepts of coding and provide Clojure-specific instructions to help you create your app. Review this page, then work your way through each chapter in the table of contents.
 
