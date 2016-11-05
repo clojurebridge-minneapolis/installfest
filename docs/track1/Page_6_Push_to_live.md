@@ -29,7 +29,7 @@ Then we need to add a main function. This is what Heroku will actually invoke(*)
     (jetty/run-jetty #'app {:port port :join? false})))
 ```
 
-The `ns` of `handler.clj` should look like:
+We need to tell Clojure to create a class file for our `chatter.handler` namespace, so let's add the `(:gen-class)` directive to our `ns` form. The `ns` of `handler.clj` should look like:
 
 ```clojure
 (ns chatter.handler
