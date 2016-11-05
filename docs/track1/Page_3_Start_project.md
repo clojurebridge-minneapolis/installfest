@@ -37,7 +37,7 @@ In the web browser, right-click and select `View Page Source`. You see that it's
 
 In the terminal you see the message, "Started server on port 3000". This means your server is working and you will be able to view your app in the browser. We initiated this connection earlier when we entered `lein ring server` in the command line.
 
-Stop the server connection by hitting "Ctrl + C" in the command line.
+You can stop the server connection by hitting "Ctrl + C" in the command line. If you try this, be sure to start the server back up again so we can use it later.
 
 Let's take a closer look at what's in the chatter directory. In your editor it looks like this:
 
@@ -108,7 +108,7 @@ In your browser, right-click on the page and select `Inspect Element` (on Mac OS
 The `HTML` tab shows what the HTML document looks like. The default is an empty head and a body with the string "Hello World". This is different from what we saw when we used `View Page Source`. The
 browser requested html but only got a string back, and it fleshes out a legal page from this information.
 
-Click on the `Net` tab and refresh the page. You see the request is actually a GET request and the response contained a status code of 200 -- that indicates the request was successful.
+Click on the `Network` tab and refresh the page. You see the request is actually a GET request and the response contained a status code of 200 -- that indicates the request was successful.
 
 In your browser address bar, type
 `http://localhost:3000/non-existent-page`. Now you see the GET request is in red and has a status of 404, which indicates that the server couldn't find the page. This was handled by the line,
