@@ -70,8 +70,8 @@ By the end of these instructions, you will have the following installed:
 And you will have:
 
 * An account on **Slack** so you can chat with students and volunteers online
-* Copied the example chat application with ````git clone````
-* Pushed your copy of the chat application to Heroku so it's *live on the Internet*
+* Copied the example "Hello World"  application with ````git clone````
+* Pushed your copy of the "Hello World"  application to Heroku so it's *live on the Internet*
 
 ## Instructions for all
 
