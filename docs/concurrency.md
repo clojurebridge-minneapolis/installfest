@@ -14,26 +14,31 @@ chat application.  The application allows it's users to read a single,
 shared conversation and post new messages with using the name and
 message content of their choosing.
 
-### The Conflict
-Because of the anonymous nature our the chat application, it quickly
-becomes very popular.  Because the application does not attempt to limit
-the length of the conversation history, it soon runs out of available
-memory and stops accepting new messages.  This leads frequently restarting
-the program, losing all messages, and fielding complaints from the users
-of the system.
+### Limitations
+The chat server keeps all of the messages it receives in application
+memory.  Because there are limits to the amount of memory available
+it will eventually fail in strange ways.  It may crash, it may return
+errors when someone tries to use, or it may be able to display the
+messages but fail when new messages are sent.  It can be difficult
+to predict exactly what will happen when an application runs out of
+memory.
 
-### The Quest
-After an in-depth study of the problem, it is determined that the
-application's behavior can be fixed, and the expectations of the users
-accommodated, by:
+### Goals
+To prevent the application from running out of memory there are
+a handful of changes that can be made:
 
-* Limiting the number of messages kept in the chat history.
-* Keeping a running total of all the messages ever posted.
-* Retaining a count of the number of messages posted by each user.
+* Limit the number of messages kept in the chat history.
+* Keep a running total of all the messages ever posted.
+* Retain a count of the number of messages posted by each user.
 
-In this section we will present a pattern for implementing these features,
-followed by a series of **solutions** that provide varying degrees
-**correctness**.
+By imposing a limit on the number of messages the program keeps, we can
+ensure it doesn't run out of memory.  Keeping a count of messages, both
+an overall total and per-user counts, keeps users informed about how
+active the conversation and it's participants have been.
+
+In this section you will find a **specification** for how these features
+should behave, followed by a series of **implementation** that provide
+varying degrees  **correctness**.
 
 ## Some Definitions
 * Mutable:  Something that can be changed (mutated).
@@ -42,7 +47,7 @@ followed by a series of **solutions** that provide varying degrees
 * Expression:  A symbol or combination of symbols which can be
 evaluated to produce a result.
 
-## The approach
+## The specification
 ### The Conversation Database
 
 1. The chat conversation will be stored in a `Map`, a collection of
@@ -81,18 +86,40 @@ When a new message is received:
 
 1. Create a new message record using the `name` and `message` provided by
 the user.
-1. Add this new message record to the front of the chat history.
+1. Add this new message record to the beginning of the chat history.
 1. If the conversation contains more messages than what the `limit` specifies,
-then remove the excess entries from the tail of the list.
+then remove the excess entries from the end of the list.
 1. Increment the `total` counter for the conversation.
 1. Find the message count for the user, and increment that too.
+
+### Correctness and Consistency
+Before we attempt to solve this problem, we should describe the behavior and
+the results of a *correct* solution.  For example:
+* When I post a message to the conversation, my message should be the first
+  in the list.
+* When users see the conversation the information must be *consistent*.
+ * The conversation must never contain more messages than it's limit.
+ * The `total` should be equal to the sum of the per-user counters in `counts`.
+ * The `total` should be equal to or greater than number of messages present.
+
+What does consistency mean?  The algorithm described above lists several steps
+each of which updates a different attribute of the conversation.  Messages
+are added and possibly removed, counters are incremented, etc.  If you were
+to peek at the conversation while the changes were in progress, or if the
+changes failed part way through, you might see numbers that didn't add up or
+not see the message that was just received.  We need to ensure the program
+doesn't show inconsistent data to the users.  For a non-critical application,
+like a chat system, this may seem overblown.  However in software handling
+monetary exchanges, or the transfer of in-game assets, ensuring that data
+remains consistent is critically important.
+
 
 ## Attempt #1: Basic Mutable Data
 ### Constructing the database
 In order to illustrate some of the differences in how mutable and immutable
 data types are used, this example will build a conversation database using
 Java's basic, mutable `HashMap` and `LinkedList` classes rather than Clojure's
-native, immutable, persistent maps, lists, and vectors.  Because this example
+standard immutable maps, lists, and vectors.  Because this example
 uses specific Java classes, Clojure's _Java interop_ support is used to
 create and interact with these native Java classes and objects.
 
@@ -114,13 +141,16 @@ The example above is written in an imperative style, as a series of commands.
 1. `put` four new entries into the `HashMap`, defining a fresh conversation.
 1. Return the configured `conversation`.
 
-If `conversation` wasn't present, and the function ended with one of the calls
-to `(.put conversation ...)` instead, then the function would try to return
-the result from that `(.put ...)` call, which would be nothing, `nil`, since
-a `put` on a `Map` is a `void` method in Java.
+The `let` expression may contain multiple statements, but will only return
+the value of the last expression inside of it's parenthesis.  If `conversation`
+wasn't at the end of the statements, and the function ended with one of
+the calls to `(.put conversation ...)` instead, then the function would return
+the result from that `(.put ...)`, which would be nothing, or `nil`.  This is
+because the design of `put` is to mutate, _eg._ _modify_ or _change_, the
+`Map`.
 
 Fortunately, Clojure provides a simpler way to write the same code with less
-repetition, and less room for human error.
+repetition, and less room for mistakes.
 
 ```
 (defn new-mutable-conversation-db
@@ -133,8 +163,8 @@ repetition, and less room for human error.
 ```
 
 This `doto` form will take it's first argument, a new `HashMap` in this
-case, then use it as the first argument to each of the `(.put ...)` calls,
-and return the now mutated object.  Clojure contains many such shorthand
+case, use it as the first argument to each of the `(.put ...)` calls,
+and return the mutated object.  Clojure contains many such shorthand
 forms to reduce common redundancies, and ensure consistent behavior.
 
 ### Implementing the algorithm
@@ -142,8 +172,8 @@ Clojure is designed for writing expression-oriented, functional logic with
 immutable values, but as we saw in the conversation constructor above, the
 language doesn't prevent you from writing imperative, mutating logic when
 needed.  Mutable data and imperative logic go hand-in-hand.  Since this
-function will be adding a new message to a mutable conversation database,
-the code has an imperative flow to it.
+function will be adding a new message to a mutable conversation, the code
+has an imperative flow to it.
 
 ```
 (defn mutating-add-message
@@ -153,13 +183,13 @@ the code has an imperative flow to it.
         counts   (.get conversation :counts)
         messages (.get conversation :messages)]
 
-    (doto counts
-      (.put name (inc (.getOrDefault counts name 0))))
+    (.put counts
+      name (inc (.getOrDefault counts name 0)))
 
-    (doto messages
-      (.addFirst (doto (new HashMap)
-                   (.put :name name)
-                   (.put :message new-message))))
+    (.addFirst messages
+      (doto (new HashMap)
+            (.put :name name)
+            (.put :message new-message)))
 
     (loop []
       (when (< limit (.size messages))
@@ -174,7 +204,7 @@ the code has an imperative flow to it.
 To restate this in English:
 
 1. Get the `:limit`, `:total`, `:counts`, and `:messages` fields
-from the received conversation.
+from the supplied conversation.
 1. Update the `counts` by incrementing the count for the provided `name`.
 1. Construct a new message and add it to the front of the `messages` list.
 1. Remove any excess `messages` using a loop
@@ -184,7 +214,7 @@ from the received conversation.
 Each of the steps mutates, or changes, the conversation data in-place.
 This is likely a familiar pattern, but as we shall discover not only is
 the code more verbose than equivalent expression based, functional code,
-making it safe for multithreaded use can be challenge.
+making it safe for multi-threaded use can be challenge.
 
 Now that we have these two functions `new-mutable-conversation-db` and
 `mutating-add-message` we can now run some simple experiments using these
@@ -209,7 +239,7 @@ Since we expect multiple people to use this application simultaneously,
 having a test case that can simulate this type of parallel activity would
 let us verify the correctness of our code.
 
-First let's load the test code, and then switch to namespace so that we
+First let's load the test code, and switch to it's namespace so we
 can use some of the tests.
 
 ```
@@ -259,7 +289,7 @@ be used to add `message-count` messages to the conversation.
 > infinite list that cycles through the list of provided values.  From this
 > infinite list the simulator will `take` a finite number of values.  This is
 > made possible by _Lazy Evaluation_.  By using a lazily generated list the
-> program will likely never have a full copy of the list in memory at any
+> program will never have a full copy of the list in memory at any
 > time.  The contents of the list will be generated as it is read. As new
 > values are read from the beginning of the list they will be discarded,
 > leaving the remainder of the list, which is just the continuation of the
@@ -279,8 +309,8 @@ be used to add `message-count` messages to the conversation.
 > If you look for uses of `add-message` in the `simulate-conversation` function,
 > you will find it wrapped with the `partial` function.  This is a form of
 > _functional composition_.  For example, if I wanted a function that doubles
-> a number, I could use `partial` along with the multiplication function to
-> to combine `*` with an argument of `2` thus _composing_ a doubling function.
+> a number, I could use `partial` to combine the multiplication function `*`
+> with an argument of `2` thus _composing_ a doubling function.
 > ```
 > (def double (partial * 2))
 > ```
@@ -307,11 +337,11 @@ NoSuchElementException   java.util.LinkedList.removeLast (LinkedList.java:283)
 ```
 
 The shock, the horror, the failure.  The simple explanation for failures like
-this is that Java's simple data structures, like LinkedList and HashMap,
+this is that Java's basic data structures, like LinkedList and HashMap,
 aren't "thread safe", they can't be modified by two threads at the same time.
 
 ### Re-implementing the algorithm
-Java, and many other languages, provide concurrent, thread-safe versions
+Java, and many other languages, provides concurrent, thread-safe versions
 of common collections types.  So let's whip up an alternate implementation of
 `new-mutable-conversation-db`.  This version will be called
 `new-mutable-concurrent-conversation-db` and will use alternate, thread-safe
@@ -412,7 +442,7 @@ it's being held will pause until the lock has been released.
 ### The implementation
 Since locking is something that is performed to coordinate changes to a
 variable, we will write a new function for adding messages to the
-conversation database.
+conversation database.  
 
 ```
 (defn locking-add-message
@@ -427,7 +457,7 @@ function takes the same three arguments, `conversation`, `name`, and
 `conversation` variable it received, and then reuses the existing
 `mutating-add-message` function to perform the change.  Syntactically we
 can see how `locking` the `conversation` literally wraps the call to
-`mutating-add-message`.
+`mutating-add-message`.  
 
 ### Testing the implementation
 Let's try running the simulator with the new `locking-add-message` function.
