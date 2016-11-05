@@ -42,7 +42,7 @@ We can ask git to show us exactly what changed.
     +Copyright © 2014 clojurebridgemn.org
 
 
-`git diff` is telling us the `README.md` file changed. In the example above, we removed the line that said "FIXME" and added a line saying "This is a web app that will display posted messages." We also changed the FIXME in the copyright to an email address. You should see the specific changes you made in your command line.
+`git diff` is telling us the `README.md` file changed. In the example above, we removed the line that said "FIXME" and added a line saying "This is a web app that will display posted messages." We also changed the FIXME in the copyright to an email address. You should see the specific changes you made in your command line. If you're having trouble closing the diff you can hit `q` to quit the diff.
 
 Since we changed the description in the `README.md`, we might as well change the description in `project.clj` file. Make the change and save that file too. Now the git status should be:
 
