@@ -54,8 +54,7 @@ Our new `project.clj` should look like:
   :main chatter.handler
   :profiles
   {:dev
-   {:dependencies [[javax.servlet/servlet-api "2.5"]
-                   [ring-mock "0.3.0"]]}
+   {:dependencies [[javax.servlet/servlet-api "2.5"]]}
    :production
    {:ring
     {:open-browser? false, :stacktraces? false, :auto-reload? false}
@@ -84,7 +83,7 @@ If we create a jar with `lein uberjar`, we can also start the app with `java $JV
 
 These new methods of starting the app are closer to what Heroku will use to start the app.
 
-We also need a Procfile in the top directory containing the line `web: java $JVM_OPTS -cp target/chatter-standalone.jar clojure.main -m chatter.handler`
+We also need a `Procfile` in the top directory containing the line `web: java $JVM_OPTS -cp target/chatter-standalone.jar clojure.main -m chatter.handler`
 
 Stop the server using control-c, then restart with the command:
 
