@@ -771,7 +771,7 @@ CSS works using pattern matching. In this case, we're saying that if the element
     (page/include-css "/chatter.css")]
 ```
 
-Refresh the page. We want to see the `h1` tag centered, but you'll see it's not. Open the Console and go to the Network tab -- [Firefox](https://developer.mozilla.org/en-US/docs/Tools/Web_Console/Opening_the_Web_Console) or [Chrome](https://developers.google.com/web/tools/chrome-devtools/) -- and watch the traffic as you refresh the page. We're getting a 404 when it's trying to download the css.
+Refresh the page. We want to see the `h1` tag centered, but you'll see it's not. Open the Console and go to the Network tab -- instructions for [Firefox](https://developer.mozilla.org/en-US/docs/Tools/Web_Console/Opening_the_Web_Console) or [Chrome](https://developers.google.com/web/tools/chrome-devtools/) -- and watch the traffic as you refresh the page. We're getting a 404 when it's trying to download the css.
 
 The problem is in our `defroutes`. We have a route handling browser GET or POST requests, but anything else is falling through to our `route/not-found` call. We need to tell `defroutes` where to find our resources.  Change the defroutes to:
 
